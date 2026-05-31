@@ -90,14 +90,14 @@ function readCmsJson<T = any>(fileName: string): T {
   ) as T;
 }
 
-const atlasDiscordUrl = "https://discord.gg/JQZBrfHqwe";
+const atlasDiscordUrl = "https://github.com/ariuhhdev/Revival-Backend";
 const atlasBannerImage =
   "https://elestiamp.b-cdn.net/banner.png";
 const atlasBannerSlimImage =
   "https://elestiamp.b-cdn.net/banner-slim.png";
 const atlasNoticeBody =
-  'lunestia is still in beta so please report every issue in the discord server';
-const atlasNewsBody = 'lunestia is still in beta so please report every issue in the discord server';
+  'A backend made going up to Chapter 5 Season 3. Made by ariuhh!';
+const atlasNewsBody = 'The best and fastest backend going until Chapter 5 Season 3.';
 
 function createDynamicMotdCollection(targetIslandCode: string): any {
   const contentId = "elestia-br-motd-item";
@@ -132,7 +132,7 @@ function createDynamicMotdCollection(targetIslandCode: string): any {
       _type: "FullScreenBackground",
     },
     FullScreenBody: atlasNewsBody,
-    FullScreenTitle: "Lunestia",
+    FullScreenTitle: "Revival Backend",
     FullScreenBackgroundImageLink: atlasBannerImage,
     TeaserBackground: {
       Image: [
@@ -145,7 +145,7 @@ function createDynamicMotdCollection(targetIslandCode: string): any {
       _type: "TeaserBackground",
     },
     TeaserBackgroundImageLink: atlasBannerSlimImage,
-    TeaserTitle: "Lunestia",
+    TeaserTitle: "Revival Backend",
     VerticalTextLayout: false,
   };
 
@@ -180,7 +180,7 @@ function applyAtlasLobbyMessaging(content: any): void {
       messages: [
         {
           _type: "CommonUI Simple Message Base",
-          title: "Lunestia",
+          title: "Revival Backend",
           body: atlasNoticeBody,
           hidden: false,
           spotlight: false,
@@ -205,7 +205,7 @@ function applyAtlasLobbyMessaging(content: any): void {
       emergencynotices: [
         {
           _type: "CommonUI Emergency Notice Base",
-          title: "Lunestia",
+          title: "Revival Backend",
           body: atlasNoticeBody,
           hidden: false,
           gamemodes: [],
@@ -234,9 +234,9 @@ function applyAtlasLobbyMessaging(content: any): void {
       _type: "CommonUI Simple Message MOTD",
       id: existingBattleroyalev2Motd.id ?? "ElestiaNewsBRv2",
       entryType: "Website",
-      title: "Lunestia",
+      title: "Revival Backend",
       body: atlasNewsBody,
-      tabTitleOverride: "Lunestia",
+      tabTitleOverride: "Revival Backend",
       sortingPriority: 0,
       image: atlasBannerImage,
       tileImage: atlasBannerSlimImage,
@@ -247,7 +247,7 @@ function applyAtlasLobbyMessaging(content: any): void {
       videoStreamingEnabled: false,
       videoAutoplay: false,
       videoFullscreen: false,
-      websiteButtonText: "Join our discord",
+      websiteButtonText: "Github link",
       websiteURL: atlasDiscordUrl,
     },
   ];
@@ -581,8 +581,8 @@ export default function () {
 hidden: false,
                  _type: "CommonUI Simple Message Base",
                  subgame: "br",
-                 body: 'lunestia is still in beta so please report every issue in the discord server',
-                 title: "Lunestia",
+                 body: atlasNoticeBody,
+                 title: "Revival Backend",
                 spotlight: false,
               },
             ],
@@ -609,8 +609,8 @@ hidden: false,
               {
 hidden: false,
                  _type: "CommonUI Emergency Notice Base",
-                 title: "Lunestia",
-                 body: 'lunestia is still in beta so please report every issue in the discord server',
+                 title: "Revival Backend",
+                 body: atlasNoticeBody,
                },
             ],
           },
@@ -633,10 +633,10 @@ hidden: false,
                   "https://elestiamp.b-cdn.net/banner-slim.png",
                 videoMute: false,
                 hidden: false,
-                tabTitleOverride: "Lunestia",
-                _type: "CommonUI Simple Message MOTD",
-title: "Lunestia",
-                 body: 'lunestia is still in beta so please report every issue in the discord server',
+                tabTitleOverride: "Revival Backend",
+                 _type: "CommonUI Simple Message MOTD",
+title: "Revival Backend",
+                 body: atlasNewsBody,
                  videoLoop: false,
                 videoStreamingEnabled: false,
                 sortingPriority: 0,
@@ -645,7 +645,7 @@ title: "Lunestia",
                 videoFullscreen: false,
                 spotlight: false,
                 websiteURL: "https://discord.gg/JQZBrfHqwe",
-                websiteButtonText: "Join our discord",
+                websiteButtonText: "Github link",
               },
             ],
           },
