@@ -1,0 +1,570 @@
+{
+  "1": {
+    "name": "Assault Rifle",
+    "weaponPath": "/Game/Athena/Items/Weapons/AthenaRangedWeapons",
+    "imagePath": "AssaultRifle.webp",
+    "damageFields": [
+      "DmgPB",
+      "DmgMid",
+      "DmgLong",
+      "DmgMaxRange"
+    ],
+    "environmentalDamageFields": [
+      "EnvDmgPB",
+      "EnvDmgMid",
+      "EnvDmgLong",
+      "EnvDmgMaxRange"
+    ],
+    "clipSize": "30",
+    "variants": [
+      {
+        "name": "Common",
+        "weaponId": "Assault_Auto_Athena_C_Ore_T03",
+        "damagePB": "30",
+        "damageMid": "24",
+        "damageLong": "20.25",
+        "damageMaxRange": "20.25",
+        "defaultEnvDamage": "30",
+        "reloadTime": "2.3"
+      },
+      {
+        "name": "Uncommon",
+        "weaponId": "Assault_Auto_Athena_UC_Ore_T03",
+        "damagePB": "31",
+        "damageMid": "24.8",
+        "damageLong": "20.925",
+        "damageMaxRange": "20.925",
+        "defaultEnvDamage": "31",
+        "reloadTime": "2.2425"
+      },
+      {
+        "name": "Rare",
+        "weaponId": "Assault_Auto_Athena_R_Ore_T03",
+        "damagePB": "33",
+        "damageMid": "26.4",
+        "damageLong": "22.275",
+        "damageMaxRange": "22.275",
+        "defaultEnvDamage": "33",
+        "reloadTime": "2.185"
+      },
+      {
+        "name": "Epic",
+        "weaponId": "Assault_Auto_Athena_VR_Ore_T03",
+        "imagePath": "AssaultRifleSR.webp",
+        "damagePB": "35",
+        "damageMid": "28",
+        "damageLong": "23.625",
+        "damageMaxRange": "23.625",
+        "defaultEnvDamage": "35",
+        "reloadTime": "2.1275"
+      },
+      {
+        "name": "Legendary",
+        "weaponId": "Assault_Auto_Athena_SR_Ore_T03",
+        "imagePath": "AssaultRifleSR.webp",
+        "damagePB": "36",
+        "damageMid": "28.8",
+        "damageLong": "24.3",
+        "damageMaxRange": "24.3",
+        "defaultEnvDamage": "36",
+        "reloadTime": "2.07"
+      }
+    ]
+  },
+  "2": {
+    "name": "Heavy Sniper",
+    "weaponPath": "/Game/Athena/Items/Weapons/AthenaRangedWeapons",
+    "imagePath": "HeavySniper.webp",
+    "damageFields": [
+      "DmgPB",
+      "DmgMid",
+      "DmgLong",
+      "DmgMaxRange"
+    ],
+    "environmentalDamageFields": [
+      "EnvDmgPB",
+      "EnvDmgMid",
+      "EnvDmgLong",
+      "EnvDmgMaxRange"
+    ],
+    "clipSize": "1",
+    "variants": [
+      {
+        "name": "Epic",
+        "weaponId": "Sniper_Heavy_Athena_VR_Ore_T03",
+        "damagePB": "150",
+        "damageMid": "150",
+        "damageLong": "150",
+        "damageMaxRange": "150",
+        "defaultEnvDamage": "150",
+        "reloadTime": "4.275"
+      },
+      {
+        "name": "Legendary",
+        "weaponId": "Sniper_Heavy_Athena_SR_Ore_T03",
+        "damagePB": "157",
+        "damageMid": "157",
+        "damageLong": "157",
+        "damageMaxRange": "157",
+        "defaultEnvDamage": "157",
+        "reloadTime": "4.05"
+      }
+    ]
+  },
+  "3": {
+    "name": "Hunting Rifle",
+    "weaponPath": "/Game/Athena/Items/Weapons/AthenaRangedWeapons",
+    "imagePath": "HuntingRifle.webp",
+    "damageFields": [
+      "DmgPB",
+      "DmgMid",
+      "DmgLong",
+      "DmgMaxRange"
+    ],
+    "environmentalDamageFields": [
+      "EnvDmgPB",
+      "EnvDmgMid",
+      "EnvDmgLong",
+      "EnvDmgMaxRange"
+    ],
+    "clipSize": "1",
+    "variants": [
+      {
+        "name": "Uncommon",
+        "weaponId": "Sniper_NoScope_Athena_UC_Ore_T03",
+        "damagePB": "86",
+        "damageMid": "86",
+        "damageLong": "86",
+        "damageMaxRange": "86",
+        "defaultEnvDamage": "86",
+        "reloadTime": "1.89"
+      },
+      {
+        "name": "Rare",
+        "weaponId": "Sniper_NoScope_Athena_R_Ore_T03",
+        "damagePB": "91",
+        "damageMid": "91",
+        "damageLong": "91",
+        "damageMaxRange": "91",
+        "defaultEnvDamage": "91",
+        "reloadTime": "1.8"
+      },
+      {
+        "name": "Epic",
+        "weaponId": "Sniper_NoScope_Athena_VR_Ore_T03",
+        "imagePath": "HuntingRifleSR.webp",
+        "damagePB": "96",
+        "damageMid": "96",
+        "damageLong": "96",
+        "damageMaxRange": "96",
+        "defaultEnvDamage": "96",
+        "reloadTime": "1.71"
+      },
+      {
+        "name": "Legendary",
+        "weaponId": "Sniper_NoScope_Athena_SR_Ore_T03",
+        "imagePath": "HuntingRifleSR.webp",
+        "damagePB": "100",
+        "damageMid": "100",
+        "damageLong": "100",
+        "damageMaxRange": "100",
+        "defaultEnvDamage": "100",
+        "reloadTime": "1.62"
+      }
+    ]
+  },
+  "4": {
+    "name": "Suppressed Sniper Rifle",
+    "weaponPath": "/Game/Athena/Items/Weapons/AthenaRangedWeapons",
+    "imagePath": "SuppressedSniper.webp",
+    "damageFields": [
+      "DmgPB",
+      "DmgMid",
+      "DmgLong",
+      "DmgMaxRange"
+    ],
+    "environmentalDamageFields": [
+      "EnvDmgPB",
+      "EnvDmgMid",
+      "EnvDmgLong",
+      "EnvDmgMaxRange"
+    ],
+    "clipSize": "1",
+    "variants": [
+      {
+        "name": "Epic",
+        "weaponId": "Sniper_BoltAction_Scope_Suppressed_Athena_VR_Ore_T03",
+        "damagePB": "95.0",
+        "damageMid": "95.0",
+        "damageLong": "95.0",
+        "damageMaxRange": "95.0",
+        "defaultEnvDamage": "95.0",
+        "reloadTime": "1.9"
+      },
+      {
+        "name": "Legendary",
+        "weaponId": "Sniper_BoltAction_Scope_Suppressed_Athena_SR_Ore_T03",
+        "damagePB": "100",
+        "damageMid": "100",
+        "damageLong": "100",
+        "damageMaxRange": "100",
+        "defaultEnvDamage": "100",
+        "reloadTime": "1.8"
+      }
+    ]
+  },
+  "5": {
+    "name": "Bolt-Action Sniper Rifle",
+    "weaponPath": "/Game/Athena/Items/Weapons/AthenaRangedWeapons",
+    "imagePath": "BoltSniper.webp",
+    "damageFields": [
+      "DmgPB",
+      "DmgMid",
+      "DmgLong",
+      "DmgMaxRange"
+    ],
+    "environmentalDamageFields": [
+      "EnvDmgPB",
+      "EnvDmgMid",
+      "EnvDmgLong",
+      "EnvDmgMaxRange"
+    ],
+    "clipSize": "1",
+    "variants": [
+      {
+        "name": "Uncommon",
+        "weaponId": "Sniper_BoltAction_Scope_Athena_UC_Ore_T03",
+        "damagePB": "100",
+        "damageMid": "100",
+        "damageLong": "100",
+        "damageMaxRange": "100",
+        "defaultEnvDamage": "100",
+        "reloadTime": "3.15"
+      },
+      {
+        "name": "Rare",
+        "weaponId": "Sniper_BoltAction_Scope_Athena_R_Ore_T03",
+        "damagePB": "105",
+        "damageMid": "105",
+        "damageLong": "105",
+        "damageMaxRange": "105",
+        "defaultEnvDamage": "105",
+        "reloadTime": "3.0"
+      },
+      {
+        "name": "Epic",
+        "weaponId": "Sniper_BoltAction_Scope_Athena_VR_Ore_T03",
+        "imagePath": "BoltSniperSR.webp",
+        "damagePB": "110",
+        "damageMid": "110",
+        "damageLong": "110",
+        "damageMaxRange": "110",
+        "defaultEnvDamage": "110",
+        "reloadTime": "2.85"
+      },
+      {
+        "name": "Legendary",
+        "weaponId": "Sniper_BoltAction_Scope_Athena_SR_Ore_T03",
+        "imagePath": "BoltSniperSR.webp",
+        "damagePB": "116",
+        "damageMid": "116",
+        "damageLong": "116",
+        "damageMaxRange": "116",
+        "defaultEnvDamage": "116",
+        "reloadTime": "2.7"
+      }
+    ]
+  },
+  "6": {
+    "name": "Semi-Auto Sniper Rifle",
+    "weaponPath": "/Game/Athena/Items/Weapons/AthenaRangedWeapons",
+    "imagePath": "SemiSniper.webp",
+    "damageFields": [
+      "DmgPB",
+      "DmgMid",
+      "DmgLong",
+      "DmgMaxRange"
+    ],
+    "environmentalDamageFields": [
+      "EnvDmgPB",
+      "EnvDmgMid",
+      "EnvDmgLong",
+      "EnvDmgMaxRange"
+    ],
+    "clipSize": "10",
+    "variants": [
+      {
+        "name": "Uncommon",
+        "weaponId": "Sniper_Standard_Scope_Athena_VR_Ore_T03",
+        "damagePB": "75",
+        "damageMid": "75",
+        "damageLong": "75",
+        "damageMaxRange": "75",
+        "defaultEnvDamage": "75",
+        "reloadTime": "2.47"
+      },
+      {
+        "name": "Rare",
+        "weaponId": "Sniper_Standard_Scope_Athena_SR_Ore_T03",
+        "damagePB": "78",
+        "damageMid": "78",
+        "damageLong": "78",
+        "damageMaxRange": "78",
+        "defaultEnvDamage": "78",
+        "reloadTime": "2.34"
+      }
+    ]
+  },
+  "7": {
+    "name": "Rocket Launcher",
+    "weaponPath": "/Game/Athena/Items/Weapons/AthenaRangedWeapons",
+    "imagePath": "RocketLauncher.webp",
+    "damageFields": [
+      "DmgPB",
+      "DmgMid",
+      "DmgLong",
+      "DmgMaxRange"
+    ],
+    "environmentalDamageFields": [
+      "EnvDmgPB",
+      "EnvDmgMid",
+      "EnvDmgLong",
+      "EnvDmgMaxRange"
+    ],
+    "clipSize": "1",
+    "variants": [
+      {
+        "name": "Uncommon",
+        "weaponId": "Launcher_Rocket_Athena_UC_Ore_T03",
+        "damagePB": "100",
+        "damageMid": "100",
+        "damageLong": "100",
+        "damageMaxRange": "100",
+        "defaultEnvDamage": "100",
+        "reloadTime": "4.14"
+      },
+      {
+        "name": "Rare",
+        "weaponId": "Launcher_Rocket_Athena_R_Ore_T03",
+        "damagePB": "110",
+        "damageMid": "110",
+        "damageLong": "110",
+        "damageMaxRange": "110",
+        "defaultEnvDamage": "375",
+        "reloadTime": "3.6"
+      },
+      {
+        "name": "Epic",
+        "weaponId": "Launcher_Rocket_Athena_VR_Ore_T03",
+        "imagePath": "RocketLauncherSR.webp",
+        "damagePB": "116",
+        "damageMid": "116",
+        "damageLong": "116",
+        "damageMaxRange": "116",
+        "defaultEnvDamage": "394",
+        "reloadTime": "3.06"
+      },
+      {
+        "name": "Legendary",
+        "weaponId": "Launcher_Rocket_Athena_SR_Ore_T03",
+        "imagePath": "RocketLauncherSR.webp",
+        "damagePB": "130",
+        "damageMid": "130",
+        "damageLong": "130",
+        "damageMaxRange": "130",
+        "defaultEnvDamage": "413",
+        "reloadTime": "2.52"
+      }
+    ]
+  },
+  "8": {
+    "name": "Grenade Launcher",
+    "weaponPath": "/Game/Athena/Items/Weapons/AthenaRangedWeapons",
+    "imagePath": "GrenadeLauncher.webp",
+    "damageFields": [
+      "DmgPB",
+      "DmgMid",
+      "DmgLong",
+      "DmgMaxRange"
+    ],
+    "environmentalDamageFields": [
+      "EnvDmgPB",
+      "EnvDmgMid",
+      "EnvDmgLong",
+      "EnvDmgMaxRange"
+    ],
+    "clipSize": "6",
+    "variants": [
+      {
+        "name": "Rare",
+        "weaponId": "Launcher_Grenade_Athena_R_Ore_T03",
+        "damagePB": "100",
+        "damageMid": "100",
+        "damageLong": "100",
+        "damageMaxRange": "100",
+        "defaultEnvDamage": "375",
+        "reloadTime": "3.0"
+      },
+      {
+        "name": "Epic",
+        "weaponId": "Launcher_Grenade_Athena_VR_Ore_T03",
+        "damagePB": "105",
+        "damageMid": "105",
+        "damageLong": "105",
+        "damageMaxRange": "105",
+        "defaultEnvDamage": "394",
+        "reloadTime": "2.85"
+      },
+      {
+        "name": "Legendary",
+        "weaponId": "Launcher_Grenade_Athena_SR_Ore_T03",
+        "damagePB": "110",
+        "damageMid": "110",
+        "damageLong": "110",
+        "damageMaxRange": "110",
+        "defaultEnvDamage": "413",
+        "reloadTime": "2.7"
+      }
+    ]
+  },
+  "9": {
+    "name": "Quad Launcher",
+    "weaponPath": "/Game/Athena/Items/Weapons/AthenaRangedWeapons",
+    "imagePath": "QuadLauncher.webp",
+    "damageFields": [
+      "DmgPB",
+      "DmgMid",
+      "DmgLong",
+      "DmgMaxRange"
+    ],
+    "environmentalDamageFields": [
+      "EnvDmgPB",
+      "EnvDmgMid",
+      "EnvDmgLong",
+      "EnvDmgMaxRange"
+    ],
+    "clipSize": "4",
+    "variants": [
+      {
+        "name": "Epic",
+        "weaponId": "Launcher_Military_Athena_VR_Ore_T03",
+        "damagePB": "80",
+        "damageMid": "80",
+        "damageLong": "80",
+        "damageMaxRange": "80",
+        "defaultEnvDamage": "315",
+        "reloadTime": "4.75"
+      },
+      {
+        "name": "Legendary",
+        "weaponId": "Launcher_Military_Athena_SR_Ore_T03",
+        "damagePB": "84",
+        "damageMid": "84",
+        "damageLong": "84",
+        "damageMaxRange": "84",
+        "defaultEnvDamage": "330",
+        "reloadTime": "4.5"
+      }
+    ]
+  },
+  "10": {
+    "name": "Anvil Rocket Launcher",
+    "weaponPath": "/Game/Athena/Items/Weapons/AthenaRangedWeapons",
+    "imagePath": "AnvilRocket.webp",
+    "damageFields": [
+      "DmgPB",
+      "DmgMid",
+      "DmgLong",
+      "DmgMaxRange"
+    ],
+    "environmentalDamageFields": [
+      "EnvDmgPB",
+      "EnvDmgMid",
+      "EnvDmgLong",
+      "EnvDmgMaxRange"
+    ],
+    "clipSize": "1",
+    "variants": [
+      {
+        "name": "Rare",
+        "weaponId": "Launcher_Anvil_Athena_R_Ore_T03",
+        "damagePB": "100",
+        "damageMid": "100",
+        "damageLong": "100",
+        "damageMaxRange": "100",
+        "defaultEnvDamage": "600",
+        "reloadTime": "3.6"
+      },
+      {
+        "name": "Epic",
+        "weaponId": "Launcher_Anvil_Athena_VR_Ore_T03",
+        "damagePB": "105",
+        "damageMid": "105",
+        "damageLong": "105",
+        "damageMaxRange": "105",
+        "defaultEnvDamage": "630",
+        "reloadTime": "3.42"
+      },
+      {
+        "name": "Legendary",
+        "weaponId": "Launcher_Anvil_Athena_SR_Ore_T03",
+        "damagePB": "110",
+        "damageMid": "110",
+        "damageLong": "110",
+        "damageMaxRange": "110",
+        "defaultEnvDamage": "660",
+        "reloadTime": "3.24"
+      }
+    ]
+  },
+  "11": {
+    "name": "Grappler",
+    "weaponPath": "/Game/Athena/Items/Weapons/AthenaRangedWeapons",
+    "weaponId": "Special_HookGun_Athena_SR_Ore_T03",
+    "imagePath": "Grappler.webp",
+    "clipSize": "10"
+  },
+  "12": {
+    "name": "Batman's Grapnel Gun",
+    "weaponPath": "/Game/Athena/Items/Weapons/AthenaRangedWeapons",
+    "weaponId": "Special_BadgerGrape_Athena_SR_Ore_T03",
+    "imagePath": "BatmanGrapnelGun.webp",
+    "clipSize": "10"
+  },
+  "13": {
+    "name": "Flint-Knock",
+    "weaponPath": "/Game/Athena/Items/Weapons/AthenaRangedWeapons",
+    "imagePath": "flintknock.webp",
+    "damageFields": [
+      "DmgPB",
+      "DmgMid",
+      "DmgLong",
+      "DmgMaxRange"
+    ],
+    "environmentalDamageFields": [
+      "EnvDmgPB",
+      "EnvDmgMid",
+      "EnvDmgLong",
+      "EnvDmgMaxRange"
+    ],
+    "damagePB": "1",
+    "defaultEnvDamage": "1",
+    "clipSize": "0",
+    "variants": [
+      {
+        "name": "Common",
+        "weaponId": "Pistol_Flintlock_Athena_C_Ore_T03",
+        "damagePB": "1",
+        "defaultEnvDamage": "1",
+        "reloadTime": "0"
+      },
+      {
+        "name": "Uncommon",
+        "weaponId": "Pistol_Flintlock_Athena_UC_Ore_T03",
+        "damagePB": "1",
+        "defaultEnvDamage": "1",
+        "reloadTime": "0"
+      }
+    ]
+  }
+}

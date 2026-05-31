@@ -1,0 +1,46 @@
+{
+  "namespace": "fn",
+  "accountId": "epic",
+  "creatorName": "Epic",
+  "mnemonic": "playlist_showdownalt_solo",
+  "linkType": "BR:Playlist",
+  "metadata": {
+      "alt_title": {
+          "de": "Arena",
+          "ru": "Королевская вечеринка",
+          "ko": "파티로얄",
+          "pt-BR": "Festa Royale",
+          "it": "Party Reale",
+          "fr": "Fête royale",
+          "zh-CN": "",
+          "es": "Fiesta magistral",
+          "es-MX": "Fiesta campal",
+          "zh": "",
+          "ar": "الحفل الملكي",
+          "zh-Hant": "",
+          "ja": "パーティーロイヤル",
+          "pl": "Królewska Impreza",
+          "es-419": "Fiesta campal",
+          "tr": "Çılgın Parti"
+      },
+      "image_url": "https://raw.githubusercontent.com/cipherfps/ATLAS-Backend/refs/heads/gui/public/playlists/Late-Game-Arena.png",
+      "image_urls": {
+          "url_s": "https://raw.githubusercontent.com/cipherfps/ATLAS-Backend/refs/heads/gui/public/playlists/Late-Game-Arena.png",
+          "url_xs": "https://raw.githubusercontent.com/cipherfps/ATLAS-Backend/refs/heads/gui/public/playlists/Late-Game-Arena.png",
+          "url_m": "https://raw.githubusercontent.com/cipherfps/ATLAS-Backend/refs/heads/gui/public/playlists/Late-Game-Arena.png",
+          "url": "https://raw.githubusercontent.com/cipherfps/ATLAS-Backend/refs/heads/gui/public/playlists/Late-Game-Arena.png"
+      },
+      "matchmaking": {
+          "override_playlist": "playlist_showdownalt_solo"
+      },
+      "title": "Arena"
+  },
+  "version": 95,
+  "active": true,
+  "disabled": false,
+  "created": "2021-10-01T00:56:45.010Z",
+  "published": "2023-11-15T23:18:49.208Z",
+  "descriptionTags": [],
+  "moderationStatus": "Approved",
+  "discoveryIntent": "PUBLIC"
+}
