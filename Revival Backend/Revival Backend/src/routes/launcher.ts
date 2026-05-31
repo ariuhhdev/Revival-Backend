@@ -31,12 +31,12 @@ import { v4 as uuidv4 } from "uuid";
 // ─── Configuration ────────────────────────────────────────────────────────────
 
 const DISCORD_CLIENT_ID =
-  process.env.DISCORD_CLIENT_ID ?? "1506692581835276388";
+  process.env.DISCORD_CLIENT_ID ?? "";
 const DISCORD_CLIENT_SECRET =
-  process.env.DISCORD_CLIENT_SECRET ?? "CTOZyaaLXTPLl-cqOXX2GAQ_cN-LQs_d";
+  process.env.DISCORD_CLIENT_SECRET ?? "";
 const DISCORD_REDIRECT_URI =
   process.env.DISCORD_REDIRECT_URI ??
-  "http://26.59.51.222:3551/launcher/discord/callback";
+  "";
 const JWT_SECRET = process.env.ELESTIA_JWT_SECRET ?? "ElestiaLauncherSecret";
 
 // ─── User Database (JSON file store) ─────────────────────────────────────────
