@@ -33,7 +33,7 @@ export class ApiError {
       errorMessage: message,
       messageVars: messageVariables.length > 0 ? messageVariables : undefined,
       numericErrorCode: numeric,
-      originatingService: "Elestia",
+      originatingService: "Revival",
       intent: "unknown",
     };
   }
@@ -124,7 +124,7 @@ export class ApiError {
     return this;
   }
 }
-export const Atlas = {
+export const Revival = {
   proxy: {
     get fetchError() {
       return new ApiError(

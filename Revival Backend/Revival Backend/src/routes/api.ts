@@ -20,7 +20,7 @@ export default function () {
         "https://download2.epicgames.com/",
         "https://download3.epicgames.com/",
         "https://download4.epicgames.com/",
-        "https://atlas.ol.epicgames.com/",
+        "https://Revival.ol.epicgames.com/",
       ],
     });
   });
@@ -120,14 +120,14 @@ export default function () {
       return c.json({
         appName: appName,
         labelName: `${label}-${platform}`,
-        buildVersion: `elestia`,
+        buildVersion: `revival`,
         catalogItemId: catalogItemId,
         expires: "9988-09-23T23:59:59.999Z",
         items: {
           MANIFEST: {
-            signature: "elestia",
+            signature: "Revival",
             distribution: "http://localhost:5535/",
-            path: `Builds/Fortnite/Content/CloudDir/Elestia.manifest`,
+            path: `Builds/Fortnite/Content/CloudDir/Revival.manifest`,
             additionalDistributions: [],
           },
         },
@@ -158,16 +158,17 @@ export default function () {
 
   app.get("/Builds/Fortnite/Content/CloudDir/*", async (c: any) => {
     c.header("Content-Type", "application/octet-stream");
-    const manifest: any = await fs.promises.readFile(
-      path.join(__dirname, "..", "..", "static", "assets", "Elestia.manifest")
-    );
+    const manifest = await Bun.file(
+      path.join(__dirname, "..", "..", "static", "assets", "Revival.manifest")
+    ).arrayBuffer();
     return c.body(manifest);
   });
 
   app.get("/Builds/Fortnite/Content/CloudDir/*.ini", async (c: any) => {
-    const ini: any = fs.readFileSync(
+    const ini = await Bun.file(
       path.join(__dirname, "..", "..", "static", "assets", "stuff.ini")
-    );
+    ).arrayBuffer();
+    c.header("Content-Type", "application/octet-stream");
     return c.body(ini);
   });
 

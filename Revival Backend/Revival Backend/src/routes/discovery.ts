@@ -1,7 +1,7 @@
 import app from "..";
 import getVersion from "../utils/handlers/getVersion";
-import { Atlas } from "../utils/handlers/errors";
-import { atlasDataReadPath } from "../config/paths";
+import { Revival } from "../utils/handlers/errors";
+import { revivalDataReadPath } from "../config/paths";
 import fs from "node:fs";
 import crypto from "crypto";
 
@@ -14,8 +14,22 @@ const SEASON_29_PLUS_PRIMARY_PLAYLISTS = [
 type DiscoveryLink = Record<string, any>;
 type DiscoverySurface = Record<string, any>;
 
+const fileCache = new Map<string, { data: any; mtimeMs: number }>();
+
 function readJsonFile(...parts: string[]): any {
-  return JSON.parse(fs.readFileSync(atlasDataReadPath(...parts), "utf-8"));
+  const filePath = revivalDataReadPath(...parts);
+  try {
+    const stat = fs.statSync(filePath);
+    const cached = fileCache.get(filePath);
+    if (cached && cached.mtimeMs === stat.mtimeMs) {
+      return cached.data;
+    }
+    const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    fileCache.set(filePath, { data, mtimeMs: stat.mtimeMs });
+    return data;
+  } catch {
+    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+  }
 }
 
 function cloneDeep<T>(value: T): T {
@@ -77,19 +91,6 @@ function populateModeSets(surface: DiscoverySurface, latestLinks: DiscoveryLink[
   }
 
   return surface;
-}
-
-function makeSurfaceEntry(link: DiscoveryLink): Record<string, any> {
-  return {
-    linkData: link,
-    lastVisited: null,
-    linkCode: link.mnemonic || link.linkCode || "",
-    isFavorite: false,
-  };
-}
-
-function findLinkByMnemonic(links: DiscoveryLink[], mnemonic: string): DiscoveryLink | null {
-  return links.find((link) => link?.mnemonic === mnemonic) ?? null;
 }
 
 function findSurfaceLinkByMnemonic(surface: DiscoverySurface, mnemonic: string): DiscoveryLink | null {
@@ -244,7 +245,7 @@ function getDiscoveryLinkResponse(
 export default function () {
   app.get("/fortnite/api/discovery/accessToken/*", async (c) => {
     const useragent: any = c.req.header("user-agent");
-    if (!useragent) return c.json(Atlas.internal.invalidUserAgent);
+    if (!useragent) return c.json(Revival.internal.invalidUserAgent);
     const regex = useragent.match(/\+\+Fortnite\+Release-\d+\.\d+/);
     return c.json({
       branchName: regex[0],
@@ -254,6 +255,7 @@ export default function () {
   });
 
   app.post("/api/v2/discovery/surface/*", async (c) => {
+    c.header("Cache-Control", "public, max-age=30");
     return c.json(buildApiV2SurfaceResponse(getVersion(c)));
   });
 
@@ -374,10 +376,12 @@ export default function () {
   });
 
   app.post("/fortnite/api/game/v2/creative/discovery/surface/*", async (c) => {
+    c.header("Cache-Control", "public, max-age=30");
     return c.json(buildDiscoverySurfaceResponse(getVersion(c)));
   });
 
   app.post("/api/v1/discovery/surface/*", async (c) => {
+    c.header("Cache-Control", "public, max-age=30");
     return c.json(buildDiscoverySurfaceResponse(getVersion(c)));
   });
 

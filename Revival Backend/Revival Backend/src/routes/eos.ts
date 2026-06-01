@@ -1,19 +1,19 @@
 import app from "..";
-import fs from "node:fs";
-import { atlasDataReadPath } from "../config/paths";
+import { revivalDataReadPath } from "../config/paths";
 
 export default function () {
   app.get("/epic/friends/v1/:accountId/blocklist", async (c) => {
     return c.json([]);
   });
 
+  let epicSettingsCache: any = null;
   app.all("/v1/epic-settings/public/users/*/values", async (c) => {
-    const epicSettingsPath = atlasDataReadPath(
-      "responses",
-      "epic-settings.json"
-    );
+    if (epicSettingsCache) return c.json(epicSettingsCache);
     try {
-      const data = JSON.parse(fs.readFileSync(epicSettingsPath, "utf-8"));
+      const data = JSON.parse(
+        await Bun.file(revivalDataReadPath("responses", "epic-settings.json")).text()
+      );
+      epicSettingsCache = data;
       return c.json(data);
     } catch {
       return c.json({});

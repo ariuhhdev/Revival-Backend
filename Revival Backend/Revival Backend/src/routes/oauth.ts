@@ -1,16 +1,16 @@
 import app, { setStatusMessage } from "..";
-import { Atlas } from "../utils/handlers/errors";
+import { Revival } from "../utils/handlers/errors";
 import jwt from "jsonwebtoken";
 import logger from "../utils/logger/logger";
 import fs from "node:fs";
 import path from "node:path";
-import { atlasDataPath } from "../config/paths";
+import { revivalDataPath } from "../config/paths";
 
 interface requestBody {
   [key: string]: any;
 }
 
-const authLogDir = atlasDataPath("logs");
+const authLogDir = revivalDataPath("logs");
 const authLogPath = path.join(authLogDir, "auth-debug.log");
 
 function ensureAuthLogDir() {
@@ -59,7 +59,7 @@ export default function () {
       hasPassword: typeof body.password === "string",
     });
 
-    // Handle exchange_code grant – issued by the Elestia launcher
+    // Handle exchange_code grant – issued by the Revival launcher
     if (body.grant_type === "exchange_code" && body.exchange_code) {
       const exchangeCode = body.exchange_code as string;
       const codes: any[] = (global as any).exchangeCodes ?? [];
@@ -70,7 +70,7 @@ export default function () {
         const versionMatch = userAgent.match(/(?:Fortnite|UEFN)[^0-9]*([0-9]+(?:\.[0-9]+){1,3})/i);
         const versionLabel = versionMatch ? versionMatch[1] : "unknown";
         setStatusMessage(`[BACKEND] ${accountId} authenticated via exchange code (v${versionLabel})`);
-        const t = jwt.sign({ email: accountId, password: "ElestiaPassword", type: "access" }, "ElestiaKey");
+        const t = jwt.sign({ email: accountId, password: "RevivalPassword", type: "access" }, "RevivalKey");
         return c.json({
           access_token: `eg1~${t}`,
           expires_in: 28800,
@@ -91,13 +91,13 @@ export default function () {
       }
     }
 
-    let accountId = body.username || "elestia";
+    let accountId = body.username || "Revival";
     if (accountId.includes("@")) {
       accountId = accountId.split("@")[0];
     }
 
     // Only log actual player logins, not default/system accounts
-    if (body.username && accountId !== "elestia") {
+    if (body.username && accountId !== "Revival") {
       const versionMatch = userAgent.match(/(?:Fortnite|UEFN)[^0-9]*([0-9]+(?:\.[0-9]+){1,3})/i);
       const versionLabel = versionMatch ? versionMatch[1] : "unknown";
       setStatusMessage(`[BACKEND] ${accountId} logged in on version ${versionLabel}`);
@@ -106,10 +106,10 @@ export default function () {
     let t = jwt.sign(
       {
         email: accountId,
-        password: "ElestiaPassword",
+        password: "RevivalPassword",
         type: "access",
       },
-      "ElestiaKey"
+      "RevivalKey"
     );
 
     logAuth("oauth/token issued", { accountId });
@@ -151,7 +151,7 @@ export default function () {
         iat: 1668529124,
         jti: "1b10b89e6fea4c45a083fe04f9a71fc3",
       },
-      "ElestiaKey"
+      "RevivalKey"
     );
     return c.json({
       access_token: access_token,
@@ -183,7 +183,7 @@ export default function () {
     let decoded;
 
     try {
-      decoded = jwt.verify(JWT, "ElestiaKey") as jwt.JwtPayload;
+      decoded = jwt.verify(JWT, "RevivalKey") as jwt.JwtPayload;
     } catch (err) {
       logAuth("epic/oauth/v2/token verify failed", {
         error: err instanceof Error ? err.message : String(err),
@@ -209,7 +209,7 @@ export default function () {
         iat: 1668529126,
         jti: "c01f29504dcd42f9b68cf55759392928",
       },
-      "ElestiaKey"
+      "RevivalKey"
     );
 
     let refresh_token = jwt.sign(
@@ -228,7 +228,7 @@ export default function () {
         iat: 1668529126,
         jti: "c01f29504dcd42f9b68cf55759392928",
       },
-      "ElestiaKey"
+      "RevivalKey"
     );
 
     let id_token = jwt.sign(
@@ -247,7 +247,7 @@ export default function () {
         iat: 1668529126,
         jti: "c01f29504dcd42f9b68cf55759392928",
       },
-      "ElestiaKey"
+      "RevivalKey"
     );
 
     return c.json({
@@ -278,7 +278,7 @@ export default function () {
       username: body.username,
     });
 
-    let accountId = body.username || "Elestia";
+    let accountId = body.username || "Revival";
     if (accountId.includes("@")) {
       accountId = accountId.split("@")[0];
     }
@@ -329,7 +329,7 @@ export default function () {
       id: accountId,
       displayName: accountId,
       name: accountId,
-      email: accountId + "@elestia.gg",
+      email: accountId + "@revival.gg",
       failedLoginAttempts: 0,
       lastLogin: new Date().toISOString(),
       numberOfDisplayNameChanges: 0,

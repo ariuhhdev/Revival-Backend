@@ -3,7 +3,7 @@ import crypto from "crypto";
 import fs from "node:fs";
 import path from "node:path";
 import getVersion from "../utils/handlers/getVersion";
-import { atlasDataPath, atlasInstallPath } from "../config/paths";
+import { revivalDataPath, revivalInstallPath } from "../config/paths";
 // Cache for hotfix files to avoid repeated disk reads
 const hotfixCache = new Map<
   string,
@@ -11,23 +11,23 @@ const hotfixCache = new Map<
 >();
 
 const TEXT_HOTFIX_SECTION = "[/Script/FortniteGame.FortTextHotfixConfig]";
-const TEXT_HOTFIX_MIGRATION_ID = "elestia_text_hotfix_v2";
-const TEXT_HOTFIX_MIGRATION_MARKER = ".elestia_text_hotfix_migration";
-const ATLAS_TEXT_REPLACEMENTS = [
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="9F28701D47C7B91B048FEBA378ADDEAE", NativeString="Epic Games", LocalizedStrings=(("en","Lunestia")))',
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="LoadingScreen", Key="Connecting", NativeString="CONNECTING", LocalizedStrings=(("en","CONNECTING TO Lunestia")))',
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="FortLoginStatus", Key="LoggingIn", NativeString="Logging In...", LocalizedStrings=(("en","Logging Into Lunestia...")))',
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="OnlineAccount", Key="DoQosPingTests", NativeString="Checking connection to datacenters...", LocalizedStrings=(("en","Checking connection to Lunestia...")))',
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="37020CCD402F073607D9D4A9561EF035", NativeString="PLAY", LocalizedStrings=(("en","Play Lunestia")))',
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="C8C6606D4ED4B816D4A358A42DFBDD59", NativeString="PLAY", LocalizedStrings=(("en","Play Lunestia")))',
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="03875FFD49212D2F37B01788C09086B5", NativeString="Quit", LocalizedStrings=(("en","Quit Lunestia")))',
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="1D20854C403FDD474AE7C8B929815DA2", NativeString="Quit", LocalizedStrings=(("en","Quit Lunestia")))',
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="1FB7052F40BE8B647B5CA5A362BE8F21", NativeString="Quit", LocalizedStrings=(("en","Quit Lunestia")))',
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="2E42C9FB4F551A859C05BF99F7E36FB1", NativeString="Quit", LocalizedStrings=(("en","Quit Lunestia")))',
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="370415344EEEA09D8C01A48F4B8148D7", NativeString="Quit", LocalizedStrings=(("en","Quit Lunestia")))',
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="538BD1FD46BCEFA4813E2FAFAA07E1A2", NativeString="Quit", LocalizedStrings=(("en","Quit Lunestia")))',
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="FortOnlineAccount", Key="CreatingParty", NativeString="Creating party...", LocalizedStrings=(("en","Welcome to Lunestia")))',
-  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="PartyContext", Key="BattleRoyaleInLobby", NativeString="Battle Royale - In Lobby", LocalizedStrings=(("en","Lunestia - Lobby")))',
+const TEXT_HOTFIX_MIGRATION_ID = "revival_text_hotfix_v2";
+const TEXT_HOTFIX_MIGRATION_MARKER = ".revival_text_hotfix_migration";
+const REVIVAL_TEXT_REPLACEMENTS = [
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="9F28701D47C7B91B048FEBA378ADDEAE", NativeString="Epic Games", LocalizedStrings=(("en","Revival")))',
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="LoadingScreen", Key="Connecting", NativeString="CONNECTING", LocalizedStrings=(("en","CONNECTING TO Revival")))',
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="FortLoginStatus", Key="LoggingIn", NativeString="Logging In...", LocalizedStrings=(("en","Logging Into Revival...")))',
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="OnlineAccount", Key="DoQosPingTests", NativeString="Checking connection to datacenters...", LocalizedStrings=(("en","Checking connection to Revival...")))',
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="37020CCD402F073607D9D4A9561EF035", NativeString="PLAY", LocalizedStrings=(("en","Play Revival")))',
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="C8C6606D4ED4B816D4A358A42DFBDD59", NativeString="PLAY", LocalizedStrings=(("en","Play Revival")))',
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="03875FFD49212D2F37B01788C09086B5", NativeString="Quit", LocalizedStrings=(("en","Quit Revival")))',
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="1D20854C403FDD474AE7C8B929815DA2", NativeString="Quit", LocalizedStrings=(("en","Quit Revival")))',
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="1FB7052F40BE8B647B5CA5A362BE8F21", NativeString="Quit", LocalizedStrings=(("en","Quit Revival")))',
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="2E42C9FB4F551A859C05BF99F7E36FB1", NativeString="Quit", LocalizedStrings=(("en","Quit Revival")))',
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="370415344EEEA09D8C01A48F4B8148D7", NativeString="Quit", LocalizedStrings=(("en","Quit Revival")))',
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="", Key="538BD1FD46BCEFA4813E2FAFAA07E1A2", NativeString="Quit", LocalizedStrings=(("en","Quit Revival")))',
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="FortOnlineAccount", Key="CreatingParty", NativeString="Creating party...", LocalizedStrings=(("en","Welcome to Revival")))',
+  '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="PartyContext", Key="BattleRoyaleInLobby", NativeString="Battle Royale - In Lobby", LocalizedStrings=(("en","Revival - Lobby")))',
   '+TextReplacements=(Category=Game, bIsMinimalPatch=True, Namespace="OnlineAccount", Key="TokenExpired", NativeString="Login Expired or Logged In Elsewhere", LocalizedStrings=(("en","Backend Restarted... Restart your game")))',
 ] as const;
 
@@ -37,7 +37,7 @@ function getBackendVersion(): string {
   }
 
   try {
-    const packageJsonPath = atlasInstallPath("package.json");
+    const packageJsonPath = revivalInstallPath("package.json");
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8")) as {
       version?: string;
     };
@@ -52,7 +52,7 @@ function getBackendVersion(): string {
   return "dev";
 }
 
-function normalizeAtlasTextHotfixSection(defaultGameIni: string): string {
+function normalizeRevivalTextHotfixSection(defaultGameIni: string): string {
   const newline = defaultGameIni.includes("\r\n") ? "\r\n" : "\n";
   const hadTrailingNewline = /\r?\n$/.test(defaultGameIni);
   let lines = defaultGameIni.split(/\r?\n/);
@@ -104,7 +104,7 @@ function normalizeAtlasTextHotfixSection(defaultGameIni: string): string {
   };
 
   for (const line of existingSectionLines) addUniqueSectionLine(line);
-  for (const line of ATLAS_TEXT_REPLACEMENTS) addUniqueSectionLine(line);
+  for (const line of REVIVAL_TEXT_REPLACEMENTS) addUniqueSectionLine(line);
 
   const sectionBlockLines = [TEXT_HOTFIX_SECTION, ...mergedSectionLines];
   const firstAssetHotfixIndex = lines.findIndex(
@@ -130,12 +130,12 @@ function normalizeAtlasTextHotfixSection(defaultGameIni: string): string {
   return output;
 }
 
-function ensureAtlasTextHotfixInFile(filePath: string): void {
+function ensureRevivalTextHotfixInFile(filePath: string): void {
   try {
     if (!fs.existsSync(filePath)) return;
 
     const original = fs.readFileSync(filePath, "utf8");
-    const patched = normalizeAtlasTextHotfixSection(original);
+    const patched = normalizeRevivalTextHotfixSection(original);
 
     if (patched !== original) {
       fs.writeFileSync(filePath, patched, "utf8");
@@ -145,8 +145,8 @@ function ensureAtlasTextHotfixInFile(filePath: string): void {
   }
 }
 
-function runAtlasTextHotfixMigration(): void {
-  const hotfixesDir = atlasDataPath("static", "hotfixes");
+function runRevivalTextHotfixMigration(): void {
+  const hotfixesDir = revivalDataPath("static", "hotfixes");
   const markerPath = path.join(hotfixesDir, TEXT_HOTFIX_MIGRATION_MARKER);
   const migrationToken = `${TEXT_HOTFIX_MIGRATION_ID}@${getBackendVersion()}`;
 
@@ -161,8 +161,8 @@ function runAtlasTextHotfixMigration(): void {
     console.error("Failed reading text hotfix migration marker:", err);
   }
 
-  ensureAtlasTextHotfixInFile(path.join(hotfixesDir, "DefaultGame.ini"));
-  ensureAtlasTextHotfixInFile(
+  ensureRevivalTextHotfixInFile(path.join(hotfixesDir, "DefaultGame.ini"));
+  ensureRevivalTextHotfixInFile(
     path.join(hotfixesDir, "DefaultGame Template", "DefaultGame.ini")
   );
 
@@ -175,10 +175,10 @@ function runAtlasTextHotfixMigration(): void {
 
 export default function () {
   // One-time/idempotent migration per app version.
-  runAtlasTextHotfixMigration();
+  runRevivalTextHotfixMigration();
 
   async function listSystemHotfixFiles() {
-    const hotfixesDir = atlasDataPath("static", "hotfixes");
+    const hotfixesDir = revivalDataPath("static", "hotfixes");
     const csFiles: any[] = [];
 
     // Note: `static/hotfixes` can contain folders (eg "DefaultGame Template") and local backups.
@@ -247,7 +247,7 @@ export default function () {
     try {
       const version = getVersion(c);
       const fileName = c.req.param("file");
-      const filePath = atlasDataPath("static", "hotfixes", fileName);
+      const filePath = revivalDataPath("static", "hotfixes", fileName);
       
       // Revalidate cache using file metadata so runtime edits are picked up.
       const fileStat = await fs.promises.stat(filePath);
@@ -344,7 +344,7 @@ export default function () {
     const accountId = c.req.param("accountId");
     try {
       const clientSettingsPath = path.join(
-        atlasDataPath("static", "ClientSettings"),
+        revivalDataPath("static", "ClientSettings"),
         accountId
       );
       await fs.promises.mkdir(clientSettingsPath, { recursive: true });
@@ -396,7 +396,7 @@ export default function () {
     const accountId = c.req.param("accountId");
 
     const clientSettingsPath = path.join(
-        atlasDataPath("static", "ClientSettings"),
+        revivalDataPath("static", "ClientSettings"),
         accountId
       );
     
@@ -441,7 +441,7 @@ export default function () {
     const accountId = c.req.param("accountId");
     const filename = c.req.param("file");
     const clientSettingsPath = path.join(
-        atlasDataPath("static", "ClientSettings"),
+        revivalDataPath("static", "ClientSettings"),
         accountId
       );
     await fs.promises.mkdir(clientSettingsPath, { recursive: true });

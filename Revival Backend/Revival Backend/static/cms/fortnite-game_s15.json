@@ -2,20 +2,20 @@
   "contentType": "collection",
   "contentId": "motd-default-collection",
   "tcId": "634e8e85-e2fc-4c68-bb10-93604cf6605f",
-  "contentMeta": "{\"ATLAS\":[\"ATLAS-item-1\"]}",
+  "contentMeta": "{\"REVIVAL\":[\"REVIVAL-item-1\"]}",
   "contentItems": [
     {
       "contentType": "content-item",
-      "contentId": "ATLAS-item-1",
+      "contentId": "REVIVAL-item-1",
       "tcId": "61fb3dd8-f23d-45cc-9058-058ab223ba5c",
       "contentFields": {
         "entryType": "Website",
-        "title": "ATLAS",
+        "title": "REVIVAL",
         "body": "@cipherfps\nDiscord: https://discord.gg/GqgakxU6bm\nClick (F8) and type \"open 127.0.0.1\" to join.",
-        "FullScreenTitle": "ATLAS",
+        "FullScreenTitle": "REVIVAL",
         "FullScreenBody": "@cipherfps\nDiscord: https://discord.gg/GqgakxU6bm\nClick (F8) and type \"open 127.0.0.1\" to join.",
-        "TeaserTitle": "ATLAS",
-        "tabTitleOverride": "ATLAS",
+        "TeaserTitle": "REVIVAL",
+        "tabTitleOverride": "REVIVAL",
         "image": [
           {
             "width": 1920,
@@ -58,7 +58,7 @@
         "websiteButtonText": "Discord",
         "websiteURL": "https://discord.gg/GqgakxU6bm"
       },
-      "contentHash": "ATLAS-contenthash",
+      "contentHash": "REVIVAL-contenthash",
       "contentSchemaName": "MotdWebsiteNewsWithVideo"
     }
   ]

@@ -63,15 +63,15 @@ export function startMatchmakingWebSocket(port: number = getConfiguredMatchmaker
                     payload: { state: "SessionAssignment", matchId },
                   }));
                 }
-              }, 2000);
+              }, 0);
               setTimeout(() => {
                 if (ws.readyState === 1) {
                   ws.send(JSON.stringify({
                     name: "Play",
-                    payload: { matchId, sessionId, joinDelaySec: 1 },
+                    payload: { matchId, sessionId, joinDelaySec: 0 },
                   }));
                 }
-              }, 4000);
+              }, 0);
               break;
             case "RemoveFromMatchmaking":
             case "CancelMatchmaking":

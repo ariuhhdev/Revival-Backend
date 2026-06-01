@@ -1,14 +1,14 @@
 {
-  "_id": "ATLAS",
+  "_id": "REVIVAL",
   "created": "0001-01-01T00:00:00.000Z",
   "updated": "0001-01-01T00:00:00.000Z",
   "rvn": 51,
   "wipeNumber": 1,
-  "accountId": "ATLAS",
+  "accountId": "REVIVAL",
   "profileId": "athena",
   "version": "no_version",
   "items": {
-    "atlas-loadout": {
+    "revival-loadout": {
       "templateId": "CosmeticLocker:cosmeticlocker_athena",
       "attributes": {
         "locker_slots_data": {
@@ -110,29 +110,29 @@
         "use_count": 0,
         "banner_icon_template": "InfluencerBanner2",
         "banner_color_template": "DefaultColor15",
-        "locker_name": "ATLAS",
+        "locker_name": "REVIVAL",
         "item_seen": false,
         "favorite": false
       },
       "quantity": 1
     },
-    "atlas-characterloadout": {
+    "revival-characterloadout": {
       "templateId": "CosmeticLoadout:LoadoutSchema_Character",
       "attributes": {
         "slots": [],
-        "display_name": "ATLAS"
+        "display_name": "REVIVAL"
       },
       "quantity": 1
     },
-    "atlas-emotesloadout": {
+    "revival-emotesloadout": {
       "templateId": "CosmeticLoadout:LoadoutSchema_Emotes",
       "attributes": {
         "slots": [],
-        "display_name": "ATLAS"
+        "display_name": "REVIVAL"
       },
       "quantity": 1
     },
-    "atlas-platformloadout": {
+    "revival-platformloadout": {
       "templateId": "CosmeticLoadout:LoadoutSchema_Platform",
       "attributes": {
         "slots": [
@@ -149,23 +149,23 @@
             "equipped_item": "AthenaMusicPack:musicpack_119_ch1_defaultmusic"
           }
         ],
-        "display_name": "ATLAS"
+        "display_name": "REVIVAL"
       },
       "quantity": 1
     },
-    "atlas-wrapsloadout": {
+    "revival-wrapsloadout": {
       "templateId": "CosmeticLoadout:LoadoutSchema_Wraps",
       "attributes": {
         "slots": [],
-        "display_name": "ATLAS"
+        "display_name": "REVIVAL"
       },
       "quantity": 1
     },
-    "atlas-vehicleloadout": {
+    "revival-vehicleloadout": {
       "templateId": "CosmeticLoadout:LoadoutSchema_Vehicle",
       "attributes": {
         "slots": [],
-        "display_name": "ATLAS"
+        "display_name": "REVIVAL"
       },
       "quantity": 1
     },
@@ -20075,8 +20075,8 @@
       },
       "quantity": 1
     },
-    "AthenaBackpack:BID_138_Celestial": {
-      "templateId": "AthenaBackpack:BID_138_Celestial",
+    "AthenaBackpack:BID_138_CRevivall": {
+      "templateId": "AthenaBackpack:BID_138_CRevivall",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -26103,8 +26103,8 @@
       },
       "quantity": 1
     },
-    "AthenaBackpack:BID_562_CelestialFemale": {
-      "templateId": "AthenaBackpack:BID_562_CelestialFemale",
+    "AthenaBackpack:BID_562_CRevivallFemale": {
+      "templateId": "AthenaBackpack:BID_562_CRevivallFemale",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -29737,8 +29737,8 @@
       },
       "quantity": 1
     },
-    "AthenaBackpack:BID_824_CelestialGlow": {
-      "templateId": "AthenaBackpack:BID_824_CelestialGlow",
+    "AthenaBackpack:BID_824_CRevivallGlow": {
+      "templateId": "AthenaBackpack:BID_824_CRevivallGlow",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -59803,8 +59803,8 @@
       },
       "quantity": 1
     },
-    "AthenaCharacter:CID_175_Athena_Commando_M_Celestial": {
-      "templateId": "AthenaCharacter:CID_175_Athena_Commando_M_Celestial",
+    "AthenaCharacter:CID_175_Athena_Commando_M_CRevivall": {
+      "templateId": "AthenaCharacter:CID_175_Athena_Commando_M_CRevivall",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -62527,8 +62527,8 @@
       },
       "quantity": 1
     },
-    "AthenaCharacter:CID_337_Athena_Commando_F_Celestial": {
-      "templateId": "AthenaCharacter:CID_337_Athena_Commando_F_Celestial",
+    "AthenaCharacter:CID_337_Athena_Commando_F_CRevivall": {
+      "templateId": "AthenaCharacter:CID_337_Athena_Commando_F_CRevivall",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -79049,8 +79049,8 @@
       },
       "quantity": 1
     },
-    "AthenaCharacter:CID_A_174_Athena_Commando_F_CelestialGlow": {
-      "templateId": "AthenaCharacter:CID_A_174_Athena_Commando_F_CelestialGlow",
+    "AthenaCharacter:CID_A_174_Athena_Commando_F_CRevivallGlow": {
+      "templateId": "AthenaCharacter:CID_A_174_Athena_Commando_F_CRevivallGlow",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -120511,8 +120511,8 @@
       },
       "quantity": 1
     },
-    "AthenaGlider:Glider_ID_090_Celestial": {
-      "templateId": "AthenaGlider:Glider_ID_090_Celestial",
+    "AthenaGlider:Glider_ID_090_CRevivall": {
+      "templateId": "AthenaGlider:Glider_ID_090_CRevivall",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -122458,8 +122458,8 @@
       },
       "quantity": 1
     },
-    "AthenaGlider:Glider_ID_228_CelestialFemale": {
-      "templateId": "AthenaGlider:Glider_ID_228_CelestialFemale",
+    "AthenaGlider:Glider_ID_228_CRevivallFemale": {
+      "templateId": "AthenaGlider:Glider_ID_228_CRevivallFemale",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -147701,8 +147701,8 @@
       },
       "quantity": 1
     },
-    "AthenaPickaxe:Pickaxe_ID_116_Celestial": {
-      "templateId": "AthenaPickaxe:Pickaxe_ID_116_Celestial",
+    "AthenaPickaxe:Pickaxe_ID_116_CRevivall": {
+      "templateId": "AthenaPickaxe:Pickaxe_ID_116_CRevivall",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -152084,8 +152084,8 @@
       },
       "quantity": 1
     },
-    "AthenaPickaxe:Pickaxe_ID_429_CelestialFemale1H": {
-      "templateId": "AthenaPickaxe:Pickaxe_ID_429_CelestialFemale1H",
+    "AthenaPickaxe:Pickaxe_ID_429_CRevivallFemale1H": {
+      "templateId": "AthenaPickaxe:Pickaxe_ID_429_CRevivallFemale1H",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -155109,8 +155109,8 @@
       },
       "quantity": 1
     },
-    "AthenaPickaxe:Pickaxe_ID_650_CelestialGlowFemale": {
-      "templateId": "AthenaPickaxe:Pickaxe_ID_650_CelestialGlowFemale",
+    "AthenaPickaxe:Pickaxe_ID_650_CRevivallGlowFemale": {
+      "templateId": "AthenaPickaxe:Pickaxe_ID_650_CRevivallGlowFemale",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -182020,8 +182020,8 @@
       },
       "quantity": 1
     },
-    "AthenaSkyDiveContrail:Trails_ID_075_Celestial": {
-      "templateId": "AthenaSkyDiveContrail:Trails_ID_075_Celestial",
+    "AthenaSkyDiveContrail:Trails_ID_075_CRevivall": {
+      "templateId": "AthenaSkyDiveContrail:Trails_ID_075_CRevivall",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -186773,8 +186773,8 @@
       },
       "quantity": 1
     },
-    "AthenaItemWrap:Wrap_258_Celestial": {
-      "templateId": "AthenaItemWrap:Wrap_258_Celestial",
+    "AthenaItemWrap:Wrap_258_CRevivall": {
+      "templateId": "AthenaItemWrap:Wrap_258_CRevivall",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -188333,8 +188333,8 @@
       },
       "quantity": 1
     },
-    "AthenaItemWrap:Wrap_390_CelestialGlow": {
-      "templateId": "AthenaItemWrap:Wrap_390_CelestialGlow",
+    "AthenaItemWrap:Wrap_390_CRevivallGlow": {
+      "templateId": "AthenaItemWrap:Wrap_390_CRevivallGlow",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -214037,8 +214037,8 @@
       },
       "quantity": 1
     },
-    "VehicleCosmetics_Booster:ID_Booster_CelestialSpark": {
-      "templateId": "VehicleCosmetics_Booster:ID_Booster_CelestialSpark",
+    "VehicleCosmetics_Booster:ID_Booster_CRevivallSpark": {
+      "templateId": "VehicleCosmetics_Booster:ID_Booster_CRevivallSpark",
       "attributes": {
         "max_level_bonus": 0,
         "level": 1,
@@ -232817,23 +232817,23 @@
       "past_seasons": [],
       "season_match_boost": 0,
       "loadouts": [
-        "atlas-loadout"
+        "revival-loadout"
       ],
       "loadout_presets": {
         "CosmeticLoadout:LoadoutSchema_Character": {
-          "0": "atlas-characterloadout"
+          "0": "revival-characterloadout"
         },
         "CosmeticLoadout:LoadoutSchema_Emotes": {
-          "0": "atlas-emotesloadout"
+          "0": "revival-emotesloadout"
         },
         "CosmeticLoadout:LoadoutSchema_Platform": {
-          "0": "atlas-platformloadout"
+          "0": "revival-platformloadout"
         },
         "CosmeticLoadout:LoadoutSchema_Wraps": {
-          "0": "atlas-wrapsloadout"
+          "0": "revival-wrapsloadout"
         },
         "CosmeticLoadout:LoadoutSchema_Vehicle": {
-          "0": "atlas-vehicleloadout"
+          "0": "revival-vehicleloadout"
         }
       },
       "favorite_victorypose": "",
@@ -232876,7 +232876,7 @@
         ""
       ],
       "inventory_limit_bonus": 0,
-      "last_applied_loadout": "atlas-loadout",
+      "last_applied_loadout": "revival-loadout",
       "favorite_skydivecontrail": "",
       "favorite_pickaxe": "AthenaPickaxe:DefaultPickaxe",
       "favorite_glider": "AthenaGlider:DefaultGlider",

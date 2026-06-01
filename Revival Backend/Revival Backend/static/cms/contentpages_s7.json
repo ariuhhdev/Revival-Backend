@@ -9,23 +9,23 @@
       "_type": "CommonUI Simple Message",
       "message": {
         "_type": "CommonUI Simple Message Base",
-        "title": "Lunestia",
+        "title": "Revival",
         "body": {
-          "ar": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "de": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "en": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "es": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "es-419": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "fr": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "it": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "ja": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "ko": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "pl": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "pt-BR": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "ru": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "tr": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "zh-CN": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
-          "zh-Hant": "ATLAS\n@cipherfps\nhttps://discord.gg/GqgakxU6bm"
+          "ar": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "de": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "en": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "es": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "es-419": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "fr": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "it": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "ja": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "ko": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "pl": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "pt-BR": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "ru": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "tr": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "zh-CN": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm",
+          "zh-Hant": "REVIVAL\n@cipherfps\nhttps://discord.gg/GqgakxU6bm"
         }
       }
     },
@@ -254,7 +254,7 @@
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
           "adspace": "ENJOY!",
-          "title": "ATLAS",
+          "title": "REVIVAL",
           "body": {
             "ar": "Ø§Ø³ØªÙ…ØªØ¹ Ø¨ØªØ¬Ø±Ø¨Ø© Ù„Ø¹Ø¨ Ø±Ø§Ø¦Ø¹Ø©!",
             "de": "GenieÃŸt ein phÃ¤nomenales Spielerlebnis!",
@@ -1422,22 +1422,22 @@
           "pin_score_requirement": 420,
           "pin_earned_text": {
             "ar": "Ù„Ø§ÙˆÙŠÙ† Ù‡Ùˆ Ø§Ù„ÙØ§Ø¦Ø²!",
-            "de": "Lunestia ist der Gewinner!",
-            "en": "Lunestia is the winner!",
-            "es": "Â¡Lunestia es el ganador!",
-            "es-419": "Â¡Lunestia es el ganador!",
-            "fr": "Lunestia est le gagnant!",
-            "it": "Lunestia Ã¨ il vincitore!",
+            "de": "Revival ist der Gewinner!",
+            "en": "Revival is the winner!",
+            "es": "Â¡Revival es el ganador!",
+            "es-419": "Â¡Revival es el ganador!",
+            "fr": "Revival est le gagnant!",
+            "it": "Revival Ã¨ il vincitore!",
             "ja": "ãƒ©ã‚¦ã‚£ãƒ³ãŒå‹è€…ã§ã™ï¼",
             "ko": "ë¼ìœˆì´ ìš°ìŠ¹ìžìž…ë‹ˆë‹¤!",
-            "pl": "Lunestia jest zwyciÄ™zcÄ…!",
-            "pt-BR": "Lunestia Ã© o vencedor!",
+            "pl": "Revival jest zwyciÄ™zcÄ…!",
+            "pt-BR": "Revival Ã© o vencedor!",
             "ru": "Ð›Ð°Ð²Ð¸Ð½ Ð¿Ð¾Ð±ÐµÐ´Ð¸Ñ‚ÐµÐ»ÑŒ!",
-            "tr": "Kazanan Lunestia!",
-            "zh-CN": "Lunestia æ˜¯èµ¢å®¶ï¼",
-            "zh-Hant": "Lunestia æ˜¯è´å®¶ï¼"
+            "tr": "Kazanan Revival!",
+            "zh-CN": "Revival æ˜¯èµ¢å®¶ï¼",
+            "zh-Hant": "Revival æ˜¯è´å®¶ï¼"
           },
-          "tournament_display_id": "atlas_cup",
+          "tournament_display_id": "REVIVAL_cup",
           "highlight_color": "F7FF00",
           "schedule_info": {
             "ar": "Ù¡Ù¦ Ø£ÙƒØªÙˆØ¨Ø± Ù¢Ù Ù¡Ù¨",
@@ -1492,39 +1492,39 @@
             "zh-Hant": "Solo"
           },
           "title_line_1": {
-            "ar": "ÙƒØ£Ø³ Lunestia",
-            "de": "Lunestia-Pokal",
-            "en": "Lunestia Cup",
-            "es": "Copa de Lunestia",
-            "es-419": "Copa de Lunestia",
-            "fr": "Coupe de Lunestia",
-            "it": "Coppa di Lunestia",
-            "ja": "Lunestia‚«ãƒƒãƒ—",
-            "ko": "Lunestia»µ",
-            "pl": "Puchar Lunestia",
-            "pt-BR": "Copa do Lunestia",
-            "ru": "ÐšÑƒÐ±Ð¾Ðº Lunestia",
-            "tr": "Lunestia KupasÄ±",
-            "zh-CN": "Lunestia¯",
-            "zh-Hant": "Lunestia›ƒ"
+            "ar": "ÙƒØ£Ø³ Revival",
+            "de": "Revival-Pokal",
+            "en": "Revival Cup",
+            "es": "Copa de Revival",
+            "es-419": "Copa de Revival",
+            "fr": "Coupe de Revival",
+            "it": "Coppa di Revival",
+            "ja": "Revival‚«ãƒƒãƒ—",
+            "ko": "Revival»µ",
+            "pl": "Puchar Revival",
+            "pt-BR": "Copa do Revival",
+            "ru": "ÐšÑƒÐ±Ð¾Ðº Revival",
+            "tr": "Revival KupasÄ±",
+            "zh-CN": "Revival¯",
+            "zh-Hant": "Revival›ƒ"
           },
           "shadow_color": "000F4A",
           "details_description": {
-            "ar": "ÙƒØ£Ø³ Lunestia",
-            "de": "Lunestia-POKAL",
-            "en": "Lunestia CUP",
-            "es": "COPA DE Lunestia",
-            "es-419": "COPA DE Lunestia",
-            "fr": "COUPE DE Lunestia",
-            "it": "COPPA DI Lunestia",
-            "ja": "Lunestia‚«ãƒƒãƒ—",
-            "ko": "Lunestia»µ",
-            "pl": "PUCHAR Lunestia",
-            "pt-BR": "COPA DO Lunestia",
-            "ru": "ÐšÐ£Ð‘ÐžÐš Lunestia",
-            "tr": "Lunestia KUPASI",
-            "zh-CN": "Lunestia¯",
-            "zh-Hant": "Lunestia›ƒ"
+            "ar": "ÙƒØ£Ø³ Revival",
+            "de": "Revival-POKAL",
+            "en": "Revival CUP",
+            "es": "COPA DE Revival",
+            "es-419": "COPA DE Revival",
+            "fr": "COUPE DE Revival",
+            "it": "COPPA DI Revival",
+            "ja": "Revival‚«ãƒƒãƒ—",
+            "ko": "Revival»µ",
+            "pl": "PUCHAR Revival",
+            "pt-BR": "COPA DO Revival",
+            "ru": "ÐšÐ£Ð‘ÐžÐš Revival",
+            "tr": "Revival KUPASI",
+            "zh-CN": "Revival¯",
+            "zh-Hant": "Revival›ƒ"
           },
           "background_left_color": "0076C3",
           "long_format_title": "",
@@ -1549,8 +1549,8 @@
       "messages": [
         {
           "_type": "CommonUI Simple Message Base",
-          "title": "Lunestia",
-          "body": "Welcome back on the peak days of Fortnite! I hope you enjoy Lunestia. See you!",
+          "title": "Revival",
+          "body": "Welcome back on the peak days of Fortnite! I hope you enjoy Revival. See you!",
           "hidden": false,
           "spotlight": false,
           "subgame": "br"
@@ -1573,8 +1573,8 @@
       "emergencynotices": [
         {
           "_type": "CommonUI Emergency Notice Base",
-          "title": "Lunestia",
-          "body": "Welcome back on the peak days of Fortnite! I hope you enjoy Lunestia. See you!",
+          "title": "Revival",
+          "body": "Welcome back on the peak days of Fortnite! I hope you enjoy Revival. See you!",
           "hidden": false,
           "gamemodes": []
         }
@@ -2037,8 +2037,8 @@
       "messages": [
         {
           "_type": "CommonUI Simple Message Base",
-          "title": "Lunestia",
-          "body": "Welcome back on the peak days of Fortnite! I hope you enjoy Lunestia. See you!",
+          "title": "Revival",
+          "body": "Welcome back on the peak days of Fortnite! I hope you enjoy Revival. See you!",
           "image": "https://raw.githubusercontent.com/cipherfps/ATLAS-Backend/refs/heads/gui/public/images/ATLAS-Backend-Banner.png",
           "hidden": false,
           "spotlight": false
@@ -2056,11 +2056,11 @@
       "motds": [
         {
           "_type": "CommonUI Simple Message MOTD",
-          "id": "AtlasNewsBRS10",
+          "id": "REVIVALNewsBRS10",
           "entryType": "Website",
-          "title": "Lunestia",
-          "body": "Welcome back on the peak days of Fortnite! I hope you enjoy Lunestia. See you!",
-          "tabTitleOverride": "Lunestia",
+          "title": "Revival",
+          "body": "Welcome back on the peak days of Fortnite! I hope you enjoy Revival. See you!",
+          "tabTitleOverride": "Revival",
           "sortingPriority": 90,
           "image": "https://raw.githubusercontent.com/cipherfps/ATLAS-Backend/refs/heads/gui/public/images/ATLAS-Backend-Banner.png",
           "tileImage": "https://raw.githubusercontent.com/cipherfps/ATLAS-Backend/refs/heads/gui/public/images/ATLAS-Backend-Banner-Slim.png",
@@ -2092,11 +2092,11 @@
       "motds": [
         {
           "_type": "CommonUI Simple Message MOTD",
-          "id": "AtlasNewsBRv2S10",
+          "id": "REVIVALNewsBRv2S10",
           "entryType": "Website",
-          "title": "Lunestia",
-          "body": "Welcome back on the peak days of Fortnite! I hope you enjoy Lunestia. See you!",
-          "tabTitleOverride": "Lunestia",
+          "title": "Revival",
+          "body": "Welcome back on the peak days of Fortnite! I hope you enjoy Revival. See you!",
+          "tabTitleOverride": "Revival",
           "sortingPriority": 90,
           "image": "https://fortnite-public-service-prod11.ol.epicgames.com/images/motd.png",
           "tileImage": "https://fortnite-public-service-prod11.ol.epicgames.com/images/motd-s.png",
@@ -2178,7 +2178,7 @@
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
           "adspace": "ENJOY!",
-          "title": "ATLAS",
+          "title": "REVIVAL",
           "body": {
             "ar": "Ø§Ø³ØªÙ…ØªØ¹ Ø¨ØªØ¬Ø±Ø¨Ø© Ù„Ø¹Ø¨ Ø±Ø§Ø¦Ø¹Ø©!",
             "de": "GenieÃŸt ein phÃ¤nomenales Spielerlebnis!",
@@ -2226,7 +2226,7 @@
           "bHidden": false,
           "sectionId": "Featured",
           "bShowTimer": true,
-          "sectionDisplayName": "Lunestia Item Shop",
+          "sectionDisplayName": "Revival Item Shop",
           "bShowIneligibleOffers": true
         }
       ]
@@ -2275,10 +2275,10 @@
               }
             ]
           },
-          "displayName": "Lunestia Item Shop",
+          "displayName": "Revival Item Shop",
           "_type": "MP Item Shop - Section",
-          "sectionID": "Lunestia",
-          "category": "Lunestia Item Shop"
+          "sectionID": "Revival",
+          "category": "Revival Item Shop"
         }
       ]
     },

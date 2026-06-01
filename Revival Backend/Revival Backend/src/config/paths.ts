@@ -10,7 +10,7 @@ function samePath(a: string, b: string): boolean {
 }
 
 function resolveInstallRoot(): string {
-  const envRoot = process.env.ATLAS_INSTALL_ROOT?.trim();
+  const envRoot = process.env.REVIVAL_INSTALL_ROOT?.trim();
   if (envRoot) {
     return normalizeAbsolutePath(envRoot);
   }
@@ -19,7 +19,7 @@ function resolveInstallRoot(): string {
 }
 
 function resolveDataRoot(installRoot: string): string {
-  const envRoot = process.env.ATLAS_DATA_ROOT?.trim();
+  const envRoot = process.env.REVIVAL_DATA_ROOT?.trim();
   if (envRoot) {
     return normalizeAbsolutePath(envRoot);
   }
@@ -30,32 +30,32 @@ function resolveDataRoot(installRoot: string): string {
 const installRoot = resolveInstallRoot();
 const dataRoot = resolveDataRoot(installRoot);
 
-export function getAtlasInstallRoot(): string {
+export function getRevivalInstallRoot(): string {
   return installRoot;
 }
 
-export function getAtlasDataRoot(): string {
+export function getRevivalDataRoot(): string {
   return dataRoot;
 }
 
-export function isUsingSeparateAtlasDataRoot(): boolean {
+export function isUsingSeparateRevivalDataRoot(): boolean {
   return !samePath(installRoot, dataRoot);
 }
 
-export function atlasInstallPath(...parts: string[]): string {
+export function revivalInstallPath(...parts: string[]): string {
   return path.join(installRoot, ...parts);
 }
 
-export function atlasDataPath(...parts: string[]): string {
+export function revivalDataPath(...parts: string[]): string {
   return path.join(dataRoot, ...parts);
 }
 
-export function atlasDataReadPath(...parts: string[]): string {
-  const candidate = atlasDataPath(...parts);
+export function revivalDataReadPath(...parts: string[]): string {
+  const candidate = revivalDataPath(...parts);
   if (fs.existsSync(candidate)) {
     return candidate;
   }
-  return atlasInstallPath(...parts);
+  return revivalInstallPath(...parts);
 }
 
 function ensureDir(dirPath: string): void {
@@ -63,8 +63,8 @@ function ensureDir(dirPath: string): void {
 }
 
 function copyFileIfMissing(relativePath: string): void {
-  const sourcePath = atlasInstallPath(...relativePath.split("/"));
-  const targetPath = atlasDataPath(...relativePath.split("/"));
+  const sourcePath = revivalInstallPath(...relativePath.split("/"));
+  const targetPath = revivalDataPath(...relativePath.split("/"));
 
   if (!fs.existsSync(sourcePath) || fs.existsSync(targetPath)) {
     return;
@@ -75,8 +75,8 @@ function copyFileIfMissing(relativePath: string): void {
 }
 
 function copyDirectoryContentsIfMissing(relativePath: string): void {
-  const sourceRoot = atlasInstallPath(...relativePath.split("/"));
-  const targetRoot = atlasDataPath(...relativePath.split("/"));
+  const sourceRoot = revivalInstallPath(...relativePath.split("/"));
+  const targetRoot = revivalDataPath(...relativePath.split("/"));
 
   if (!fs.existsSync(sourceRoot)) {
     return;
@@ -96,18 +96,18 @@ function copyDirectoryContentsIfMissing(relativePath: string): void {
   }
 }
 
-export function ensureAtlasDataLayout(): void {
+export function ensureRevivalDataLayout(): void {
   ensureDir(dataRoot);
-  ensureDir(atlasDataPath("logs"));
-  ensureDir(atlasDataPath("exports"));
-  ensureDir(atlasDataPath("responses"));
-  ensureDir(atlasDataPath("src", "config"));
-  ensureDir(atlasDataPath("static", "profiles"));
-  ensureDir(atlasDataPath("static", "ClientSettings"));
-  ensureDir(atlasDataPath("static", "hotfixes"));
-  ensureDir(atlasDataPath("public", "items", "custom-groups"));
+  ensureDir(revivalDataPath("logs"));
+  ensureDir(revivalDataPath("exports"));
+  ensureDir(revivalDataPath("responses"));
+  ensureDir(revivalDataPath("src", "config"));
+  ensureDir(revivalDataPath("static", "profiles"));
+  ensureDir(revivalDataPath("static", "ClientSettings"));
+  ensureDir(revivalDataPath("static", "hotfixes"));
+  ensureDir(revivalDataPath("public", "items", "custom-groups"));
 
-  if (!isUsingSeparateAtlasDataRoot()) {
+  if (!isUsingSeparateRevivalDataRoot()) {
     return;
   }
 

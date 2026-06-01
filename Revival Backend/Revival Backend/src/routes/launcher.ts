@@ -1,8 +1,8 @@
 /**
- * Elestia Launcher API Routes
+ * Revival Launcher API Routes
  *
  * Handles Discord OAuth2 authentication and all launcher ↔ backend
- * communication required by the Elestia WPF launcher.
+ * communication required by the Revival WPF launcher.
  *
  * Setup:
  *  1. Create a Discord application at https://discord.com/developers/applications
@@ -11,7 +11,7 @@
  *       DISCORD_CLIENT_ID      – your app's client id
  *       DISCORD_CLIENT_SECRET  – your app's client secret
  *       DISCORD_REDIRECT_URI   – http://26.59.51.222:3551/launcher/discord/callback
- *       ELESTIA_JWT_SECRET     – secret used to sign launcher tokens (any long string)
+ *       REVIVAL_JWT_SECRET     – secret used to sign launcher tokens (any long string)
  *
  * Authentication flow:
  *  Launcher → GET /launcher/discord/login → redirect to Discord
@@ -24,24 +24,24 @@ import axios from "axios";
 import jwt from "jsonwebtoken";
 import fs from "node:fs";
 import path from "node:path";
-import { atlasDataPath } from "../config/paths";
+import { revivalDataPath } from "../config/paths";
 import logger from "../utils/logger/logger";
 import { v4 as uuidv4 } from "uuid";
 
 // ─── Configuration ────────────────────────────────────────────────────────────
 
 const DISCORD_CLIENT_ID =
-  process.env.DISCORD_CLIENT_ID ?? "";
+  process.env.DISCORD_CLIENT_ID ?? "1506692581835276388";
 const DISCORD_CLIENT_SECRET =
-  process.env.DISCORD_CLIENT_SECRET ?? "";
+  process.env.DISCORD_CLIENT_SECRET ?? "CTOZyaaLXTPLl-cqOXX2GAQ_cN-LQs_d";
 const DISCORD_REDIRECT_URI =
   process.env.DISCORD_REDIRECT_URI ??
-  "";
-const JWT_SECRET = process.env.ELESTIA_JWT_SECRET ?? "ElestiaLauncherSecret";
+  "http://26.59.51.222:3551/launcher/discord/callback";
+const JWT_SECRET = process.env.REVIVAL_JWT_SECRET ?? "RevivalLauncherSecret";
 
 // ─── User Database (JSON file store) ─────────────────────────────────────────
 
-const usersDir = atlasDataPath("launcher");
+const usersDir = revivalDataPath("launcher");
 const usersFile = path.join(usersDir, "users.json");
 
 interface LauncherUser {
@@ -219,7 +219,7 @@ export default function () {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lunestia — Login Successful</title>
+  <title>Revival — Login Successful</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     body{
@@ -284,13 +284,13 @@ export default function () {
     <div class="badge">Authenticated</div>
     <img class="avatar" src="${avatarUrl}" alt="${username}" />
     <h1>Logged in as <span>${username}</span></h1>
-    <p class="subtitle">Copy this token and paste it into Lunestia Launcher</p>
+    <p class="subtitle">Copy this token and paste it into Revival Launcher</p>
     <div class="token-box">${user.token}</div>
     <button class="copy-btn" onclick="navigator.clipboard.writeText('${user.token}').then(()=>{this.textContent='Copied!'}).catch(()=>{})">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
       Copy Token
     </button>
-    <p class="footer">Paste this token in the Lunestia Launcher login field</p>
+    <p class="footer">Paste this token in the Revival Launcher login field</p>
   </div>
 </body>
 </html>`);
@@ -491,9 +491,9 @@ export default function () {
    */
   app.get("/fetch/news1", (c) =>
     c.json({
-      header: "Elestia",
+      header: "Revival",
       date: new Date().toISOString().split("T")[0],
-      desc: "Welcome to Elestia! Join our community and enjoy the best private server experience.",
+      desc: "Welcome to Revival! Join our community and enjoy the best private server experience.",
     })
   );
 
@@ -501,7 +501,7 @@ export default function () {
     c.json({
       header: "Version 1.0.0",
       date: new Date().toISOString().split("T")[0],
-      desc: "Elestia has officially launched. Jump in and start playing!",
+      desc: "Revival has officially launched. Jump in and start playing!",
     })
   );
 

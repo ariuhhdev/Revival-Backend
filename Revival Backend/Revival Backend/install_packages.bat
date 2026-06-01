@@ -1,10 +1,10 @@
 @echo off
 setlocal enabledelayedexpansion
-title ATLAS Backend Setup
+title REVIVAL Backend Setup
 color 0A
 
 echo ========================================
-echo    ATLAS Backend - First Time Setup
+echo    REVIVAL Backend - First Time Setup
 echo ========================================
 echo.
 
@@ -20,7 +20,7 @@ if %errorlevel% equ 0 (
 
 echo [!] Bun is not installed.
 echo.
-echo Bun is required to run ATLAS Backend. Would you like to install it now?
+echo Bun is required to run REVIVAL Backend. Would you like to install it now?
 echo.
 echo Options:
 echo   1. Install Bun automatically (Recommended)
@@ -110,7 +110,7 @@ echo ========================================
 echo    Setup Complete!
 echo ========================================
 echo.
-echo To start ATLAS Backend, run: start.bat
+echo To start REVIVAL Backend, run: start.bat
 echo.
 echo For support, join the Discord:
 echo https://discord.gg/GqgakxU6bm

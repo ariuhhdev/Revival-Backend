@@ -8,11 +8,11 @@
       "motds": [
         {
           "_type": "CommonUI Simple Message MOTD",
-          "id": "AtlasNewsBR",
+          "id": "REVIVALNewsBR",
           "entryType": "Website",
-          "title": "ATLAS",
+          "title": "REVIVAL",
           "body": "@cipherfps\nDiscord: https://discord.gg/GqgakxU6bm\nClick (F8) and type \"open 127.0.0.1\" to join.",
-          "tabTitleOverride": "ATLAS",
+          "tabTitleOverride": "REVIVAL",
           "sortingPriority": 90,
           "image": "https://raw.githubusercontent.com/cipherfps/ATLAS-Backend/refs/heads/gui/public/images/ATLAS-Backend-Banner.png",
           "tileImage": "https://raw.githubusercontent.com/cipherfps/ATLAS-Backend/refs/heads/gui/public/images/ATLAS-Backend-Banner-Slim.png",
@@ -30,7 +30,7 @@
       "messages": [
         {
           "_type": "CommonUI Simple Message Base",
-          "title": "ATLAS",
+          "title": "REVIVAL",
           "body": "@cipherfps\nDiscord: https://discord.gg/GqgakxU6bm\nClick (F8) and type \"open 127.0.0.1\" to join.",
           "image": "https://raw.githubusercontent.com/cipherfps/ATLAS-Backend/refs/heads/gui/public/images/ATLAS-Backend-Banner.png",
           "hidden": false,
@@ -63,11 +63,11 @@
       "motds": [
         {
           "_type": "CommonUI Simple Message MOTD",
-          "id": "AtlasNewsBRv2",
+          "id": "REVIVALNewsBRv2",
           "entryType": "Website",
-          "title": "ATLAS",
+          "title": "REVIVAL",
           "body": "@cipherfps\nDiscord: https://discord.gg/GqgakxU6bm\nClick (F8) and type \"open 127.0.0.1\" to join.",
-          "tabTitleOverride": "ATLAS",
+          "tabTitleOverride": "REVIVAL",
           "sortingPriority": 90,
           "image": "https://fortnite-public-service-prod11.ol.epicgames.com/images/motd.png",
           "tileImage": "https://fortnite-public-service-prod11.ol.epicgames.com/images/motd-s.png",
@@ -98,7 +98,7 @@
       "messages": [
         {
           "_type": "CommonUI Simple Message Base",
-          "title": "ATLAS",
+          "title": "REVIVAL",
           "body": "@cipherfps\nDiscord: https://discord.gg/GqgakxU6bm\nClick (F8) and type \"open 127.0.0.1\" to join.",
           "hidden": false,
           "spotlight": false,
@@ -122,7 +122,7 @@
       "emergencynotices": [
         {
           "_type": "CommonUI Emergency Notice Base",
-          "title": "ATLAS",
+          "title": "REVIVAL",
           "body": "@cipherfps\nDiscord: https://discord.gg/GqgakxU6bm\nClick (F8) and type \"open 127.0.0.1\" to join.",
           "hidden": false,
           "gamemodes": []

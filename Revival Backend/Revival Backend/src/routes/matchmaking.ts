@@ -30,7 +30,7 @@ function getAccountIdFromRequest(c: any): string {
   }
 
   try {
-    const decoded = jwt.verify(token, "ElestiaKey") as any;
+    const decoded = jwt.verify(token, "RevivalKey") as any;
     return decoded.accountId || decoded.email || decoded.sub || "default";
   } catch {
     return "default";
@@ -48,7 +48,7 @@ function getStoredSessionInfo(accountId: string): MatchmakingSessionInfo {
     buildUniqueId: "0",
     serverAddress: configuredServer.host,
     serverPort: configuredServer.port,
-    playlistName: "Playlist_DefaultSolo",
+    playlistName: "Playlist_ShowdownAlt_Solo",
     region: "NAE",
   };
 }

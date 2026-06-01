@@ -1,18 +1,19 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { compress } from "hono/compress";
 import fs from "node:fs";
 import path from "node:path";
 import { ensureConfigFile } from "./config/config";
 import {
-  atlasDataPath,
-  atlasInstallPath,
-  ensureAtlasDataLayout,
+  revivalDataPath,
+  revivalInstallPath,
+  ensureRevivalDataLayout,
 } from "./config/paths";
-import { Atlas } from "./utils/handlers/errors";
+import { Revival } from "./utils/handlers/errors";
 import logger from "./utils/logger/logger";
 import { loadRoutes } from "./utils/startup/loadRoutes";
 
-const resolvedPortEnv = process.env.ATLAS_PORT ?? process.env.PORT ?? "3551";
+const resolvedPortEnv = process.env.REVIVAL_PORT ?? process.env.PORT ?? "3551";
 const parsedPort = Number(resolvedPortEnv);
 const PORT = Number.isFinite(parsedPort) && parsedPort > 0 ? parsedPort : 3551;
 const DEFAULT_CURVE_PATH = "/Game/Athena/Balance/DataTables/AthenaGameData";
@@ -20,7 +21,7 @@ const DEFAULT_CURVE_PATH = "/Game/Athena/Balance/DataTables/AthenaGameData";
 export const app = new Hono({ strict: false });
 export default app;
 
-ensureAtlasDataLayout();
+ensureRevivalDataLayout();
 ensureConfigFile();
 ensureCurveDefaults();
 ensureDataTableDefaults();
@@ -87,16 +88,16 @@ function getDataTableSignature(dataTable: any): string {
 }
 
 function resolveShippedDefaultsPath(fileName: string): string {
-  const installPath = atlasInstallPath("responses", fileName);
+  const installPath = revivalInstallPath("responses", fileName);
   if (fs.existsSync(installPath)) {
     return installPath;
   }
 
-  return atlasDataPath("responses", fileName);
+  return revivalDataPath("responses", fileName);
 }
 
 function ensureCurveDefaults() {
-  const curvesPath = atlasDataPath("responses", "curves.json");
+  const curvesPath = revivalDataPath("responses", "curves.json");
   const defaultsPath = resolveShippedDefaultsPath("curves.defaults.json");
 
   if (!fs.existsSync(defaultsPath)) {
@@ -107,7 +108,7 @@ function ensureCurveDefaults() {
     if (!fs.existsSync(curvesPath)) {
       fs.mkdirSync(path.dirname(curvesPath), { recursive: true });
       fs.copyFileSync(defaultsPath, curvesPath);
-      logger.info("[STARTUP] Initialized curves.json from curves.defaults.json");
+      logger.info("[REVIVAL] Initialized curves.json from curves.defaults.json");
       return;
     }
 
@@ -155,17 +156,17 @@ function ensureCurveDefaults() {
 
     if (addedCount > 0) {
       fs.writeFileSync(curvesPath, JSON.stringify(curves, null, 2));
-      logger.info(`[STARTUP] Added ${addedCount} missing CurveTable default(s)`);
+      logger.info(`[REVIVAL] Added ${addedCount} missing CurveTable default(s)`);
     }
   } catch (error) {
     logger.warning(
-      `[STARTUP] Failed to merge CurveTable defaults: ${error instanceof Error ? error.message : String(error)}`,
+      `[REVIVAL] Failed to merge CurveTable defaults: ${error instanceof Error ? error.message : String(error)}`,
     );
   }
 }
 
 function ensureDataTableDefaults() {
-  const dataTablesPath = atlasDataPath("responses", "datatables.json");
+  const dataTablesPath = revivalDataPath("responses", "datatables.json");
   const defaultsPath = resolveShippedDefaultsPath("datatables.defaults.json");
 
   if (!fs.existsSync(defaultsPath)) {
@@ -176,7 +177,7 @@ function ensureDataTableDefaults() {
     if (!fs.existsSync(dataTablesPath)) {
       fs.mkdirSync(path.dirname(dataTablesPath), { recursive: true });
       fs.copyFileSync(defaultsPath, dataTablesPath);
-      logger.info("[STARTUP] Initialized datatables.json from datatables.defaults.json");
+      logger.info("[REVIVAL] Initialized datatables.json from datatables.defaults.json");
       return;
     }
 
@@ -224,11 +225,11 @@ function ensureDataTableDefaults() {
 
     if (addedCount > 0) {
       fs.writeFileSync(dataTablesPath, JSON.stringify(dataTables, null, 2));
-      logger.info(`[STARTUP] Added ${addedCount} missing DataTable default(s)`);
+      logger.info(`[REVIVAL] Added ${addedCount} missing DataTable default(s)`);
     }
   } catch (error) {
     logger.warning(
-      `[STARTUP] Failed to merge DataTable defaults: ${error instanceof Error ? error.message : String(error)}`,
+      `[REVIVAL] Failed to merge DataTable defaults: ${error instanceof Error ? error.message : String(error)}`,
     );
   }
 }
@@ -249,8 +250,9 @@ export function setStatusMessage(message: string) {
 }
 
 app.use("*", cors());
+app.use("*", compress());
 
-app.notFound((c) => c.json(Atlas.basic.notFound, 404));
+app.notFound((c) => c.json(Revival.basic.notFound, 404));
 
 app.use(async (c, next) => {
   await next();
@@ -258,7 +260,7 @@ app.use(async (c, next) => {
   if (c.req.path === "/unknown" && c.req.method === "GET") {
     if (!hasLoggedLauncherPing) {
       hasLoggedLauncherPing = true;
-      setStatusMessage("[BACKEND] Elestia Backend was pinged by Launcher");
+      setStatusMessage("[BACKEND] Revival Backend was pinged by Launcher");
     }
     return c.text("OK");
   }
@@ -275,6 +277,7 @@ await loadRoutes(path.join(__dirname, "routes"), app);
 const startServer = async () => {
   const server = Bun.serve({
     port: PORT,
+    development: false,
     fetch(req, server) {
       const url = new URL(req.url);
       if (url.pathname === "/fortnite/api/game/v2/matchmakingservice/ws") {
@@ -345,7 +348,7 @@ const startServer = async () => {
     },
   });
 
-  logger.backend(`Elestia Backend started on Port ${PORT}`);
+  logger.backend(`Revival Backend started on Port ${PORT}`);
   logger.info("Backend is running. Control via GUI application.");
 };
 

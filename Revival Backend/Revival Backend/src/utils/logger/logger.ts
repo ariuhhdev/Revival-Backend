@@ -1,42 +1,46 @@
 import chalk from "chalk";
 
+function timestamp(): string {
+  return chalk.dim(new Date().toLocaleTimeString("en-GB", { hour12: false }));
+}
+
 export default {
   backend(...messages: string[]) {
-    console.log(`\x1b[37m[\x1b[96mBACKEND\x1b[0m\x1b[37m]`, ...messages);
+    console.log(chalk.cyan.bold(" ◆  REVIVAL "), timestamp(), ...messages);
   },
 
   startup(...messages: string[]) {
-    console.log(`\x1b[32m[STARTUP]\x1b[0m`, ...messages);
+    console.log(chalk.green.bold(" ▶  STARTUP "), timestamp(), ...messages);
   },
 
   bot(...messages: string[]) {
-    console.log(`\x1b[36m[BOT]\x1b[0m`, ...messages);
+    console.log(chalk.cyan(" ●  BOT "), timestamp(), ...messages);
   },
 
   debug(...messages: string[]) {
-    console.log(`\x1b[35m[DEBUG]\x1b[0m`, ...messages);
+    console.log(chalk.magenta(" ◇  DEBUG "), timestamp(), ...messages);
   },
 
   error(...messages: string[]) {
-    console.error(`\x1b[31m[ERROR]\x1b[0m`, ...messages);
+    console.error(chalk.red.bold(" ✕  ERROR "), timestamp(), ...messages);
   },
-  
+
   info(...messages: string[]) {
-    if (messages.length > 0 && typeof messages[0] === 'string') {
+    if (messages.length > 0 && typeof messages[0] === "string") {
       const first = messages[0].trim();
-      if (first.startsWith('[')) {
+      if (first.startsWith("[")) {
         console.log(...messages);
         return;
       }
     }
-    console.log(`\x1b[34m[INFO]\x1b[0m`, ...messages);
+    console.log(chalk.blue(" ℹ  INFO "), timestamp(), ...messages);
   },
-  
+
   success(...messages: string[]) {
-    console.log(`\x1b[32m[SUCCESS]\x1b[0m`, ...messages);
+    console.log(chalk.green.bold(" ✔  SUCCESS "), timestamp(), ...messages);
   },
-  
+
   warning(...messages: string[]) {
-    console.log(`\x1b[33m[WARNING]\x1b[0m`, ...messages);
+    console.log(chalk.yellow(" ⚠  WARNING "), timestamp(), ...messages);
   },
 };

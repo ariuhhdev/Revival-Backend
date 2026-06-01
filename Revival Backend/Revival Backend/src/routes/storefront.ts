@@ -1,5 +1,5 @@
 import app from "..";
-import { Atlas } from "../utils/handlers/errors";
+import { Revival } from "../utils/handlers/errors";
 import logger from "../utils/logger/logger";
 import path from "node:path";
 
@@ -104,7 +104,7 @@ export default function () {
 
   app.get("/fortnite/api/storefront/v2/catalog", async (c) => {
     const useragent: any = c.req.header("user-agent");
-    if (!useragent) return c.json(Atlas.internal.invalidUserAgent);
+    if (!useragent) return c.json(Revival.internal.invalidUserAgent);
 
     const totalEntries = Array.isArray(sharedCatalog.storefronts)
       ? sharedCatalog.storefronts.reduce(

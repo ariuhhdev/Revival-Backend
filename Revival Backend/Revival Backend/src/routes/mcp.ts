@@ -3,8 +3,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { v4 as uuidv4 } from "uuid";
 import getVersion from "../utils/handlers/getVersion";
-import { Atlas } from "../utils/handlers/errors";
-import { atlasDataPath } from "../config/paths";
+import { Revival } from "../utils/handlers/errors";
+import { revivalDataPath } from "../config/paths";
 import {
   loadBattlePassData,
   isBattlePassOffer,
@@ -13,7 +13,7 @@ import {
 } from "../utils/handlers/battlepass";
 
 const userpath = new Set();
-const profilesDir = atlasDataPath("static", "profiles");
+const profilesDir = revivalDataPath("static", "profiles");
 
 function parseJson(raw: string): any {
   return JSON.parse(raw.replace(/^\uFEFF/, ""));
@@ -21,6 +21,18 @@ function parseJson(raw: string): any {
 
 // In-memory cache to avoid repeated file reads
 const profileCache = new Map();
+const CACHE_MAX_SIZE = 500;
+
+// Periodic cache cleanup to prevent memory leaks
+setInterval(() => {
+  if (profileCache.size > CACHE_MAX_SIZE) {
+    const entries = [...profileCache.entries()];
+    const toDelete = entries.slice(0, entries.length - CACHE_MAX_SIZE);
+    for (const [key] of toDelete) {
+      profileCache.delete(key);
+    }
+  }
+}, 60_000);
 
 export default function () {
   app.post(
@@ -230,9 +242,19 @@ export default function () {
         case "PurchaseCatalogEntry":
           {
             const useragent: any = c.req.header("user-agent");
-            if (!useragent) return c.json(Atlas.internal.invalidUserAgent);
+            if (!useragent) return c.json(Revival.internal.invalidUserAgent);
 
             const ver = getVersion(c);
+
+            const shopCache = new Map<string, any>();
+            const loadShop = (file: string): any => {
+              if (shopCache.has(file)) return shopCache.get(file);
+              const data = JSON.parse(
+                fs.readFileSync(path.join(__dirname, "../../static/shop", file), "utf8"),
+              );
+              shopCache.set(file, data);
+              return data;
+            };
 
             const findOffer = (offerId: unknown) => {
               if (typeof offerId !== "string" || offerId.length === 0) {
@@ -242,19 +264,13 @@ export default function () {
               let shop: any = {};
               switch (true) {
                 case ver.build >= 30.1:
-                  shop = JSON.parse(
-                    fs.readFileSync(path.join(__dirname, "../../static/shop/v3.json"), "utf8"),
-                  );
+                  shop = loadShop("v3.json");
                   break;
                 case ver.build >= 26.3:
-                  shop = JSON.parse(
-                    fs.readFileSync(path.join(__dirname, "../../static/shop/v2.json"), "utf8"),
-                  );
+                  shop = loadShop("v2.json");
                   break;
                 default:
-                  shop = JSON.parse(
-                    fs.readFileSync(path.join(__dirname, "../../static/shop/v1.json"), "utf8"),
-                  );
+                  shop = loadShop("v1.json");
                   break;
               }
 
@@ -267,7 +283,7 @@ export default function () {
             };
 
             const foundOffer = findOffer(body.offerId) as any;
-            if (!foundOffer) return c.json(Atlas.storefront.invalidItem, 400);
+            if (!foundOffer) return c.json(Revival.storefront.invalidItem, 400);
 
             const notification: any = {
               type: "CatalogPurchase",
@@ -323,7 +339,7 @@ export default function () {
 
               // Prevent re-purchasing the same battle pass
               if (bpType === "battlepass" && purchasedOffers.includes(body.offerId)) {
-                return c.json(Atlas.storefront.alreadyOwned, 400);
+                return c.json(Revival.storefront.alreadyOwned, 400);
               }
 
               let lootList: any[] = [];
@@ -412,7 +428,7 @@ export default function () {
                   if (currencyPlatform !== currentMtxPlatform && currencyPlatform !== "shared") continue;
 
                   if (Number(item?.quantity ?? 0) < totalCost) {
-                    return c.json(Atlas.storefront.currencyInsufficient, 400);
+                    return c.json(Revival.storefront.currencyInsufficient, 400);
                   }
 
                   profile.items[key].quantity -= totalCost;
@@ -426,7 +442,7 @@ export default function () {
                 }
 
                 if (!paid) {
-                  return c.json(Atlas.storefront.currencyInsufficient, 400);
+                  return c.json(Revival.storefront.currencyInsufficient, 400);
                 }
               }
 
@@ -461,7 +477,7 @@ export default function () {
                   item.templateId.toLowerCase() === String(value.templateId).toLowerCase(),
               );
 
-              if (itemExists) return c.json(Atlas.storefront.alreadyOwned, 400);
+              if (itemExists) return c.json(Revival.storefront.alreadyOwned, 400);
 
               const itemId = uuidv4();
               const item = {
@@ -509,7 +525,7 @@ export default function () {
                 if (currencyPlatform !== currentMtxPlatform && currencyPlatform !== "shared") continue;
 
                 if (Number(item?.quantity ?? 0) < offerPrice) {
-                  return c.json(Atlas.storefront.currencyInsufficient, 400);
+                  return c.json(Revival.storefront.currencyInsufficient, 400);
                 }
 
                 profile.items[key].quantity -= offerPrice;
@@ -524,7 +540,7 @@ export default function () {
               }
 
               if (!paid && offerPrice > 0) {
-                return c.json(Atlas.storefront.currencyInsufficient, 400);
+                return c.json(Revival.storefront.currencyInsufficient, 400);
               }
             }
 
@@ -1295,7 +1311,7 @@ export default function () {
   );
 
   // Endpoint to clear the profile cache (used when presets are applied)
-  app.post("/elestia/clear-profile-cache", async (c) => {
+  app.post("/revival/clear-profile-cache", async (c) => {
     profileCache.clear();
     return c.json({ success: true, message: "Profile cache cleared" });
   });

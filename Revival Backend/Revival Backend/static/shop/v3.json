@@ -29573,7 +29573,7 @@
         },
         {
           "offerId": "4E40664F40E1629B022638A891ABDDDE",
-          "devName": "Celestial",
+          "devName": "CRevivall",
           "offerType": "StaticPrice",
           "prices": [
             {
@@ -29624,25 +29624,25 @@
           "title": "",
           "shortDescription": "",
           "description": "",
-          "displayAssetPath": "/Game/Catalog/DisplayAssets/DA_Featured_CID_175_Athena_Commando_M_Celestial.DA_Featured_CID_175_Athena_Commando_M_Celestial",
+          "displayAssetPath": "/Game/Catalog/DisplayAssets/DA_Featured_CID_175_Athena_Commando_M_CRevivall.DA_Featured_CID_175_Athena_Commando_M_CRevivall",
           "itemGrants": [
             {
-              "templateId": "AthenaCharacter:cid_175_athena_commando_m_celestial",
+              "templateId": "AthenaCharacter:cid_175_athena_commando_m_cRevivall",
               "quantity": 1,
               "attributes": {}
             },
             {
-              "templateId": "AthenaGlider:glider_id_090_celestial",
+              "templateId": "AthenaGlider:glider_id_090_cRevivall",
               "quantity": 1,
               "attributes": {}
             },
             {
-              "templateId": "AthenaBackpack:bid_138_celestial",
+              "templateId": "AthenaBackpack:bid_138_cRevivall",
               "quantity": 1,
               "attributes": {}
             },
             {
-              "templateId": "AthenaPickaxe:pickaxe_id_116_celestial",
+              "templateId": "AthenaPickaxe:pickaxe_id_116_cRevivall",
               "quantity": 1,
               "attributes": {}
             }

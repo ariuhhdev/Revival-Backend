@@ -1,5 +1,4 @@
 import { readConfig } from "../../config/config";
-import { networkInterfaces } from "node:os";
 
 const DEFAULT_MATCHMAKER_PORT = 5555;
 const DEFAULT_GAME_SERVER_HOST = "127.0.0.1";
@@ -28,38 +27,8 @@ function readMatchmakingSetting(...keys: string[]): string | undefined {
   return undefined;
 }
 
-function isUsableIpv4Address(address: string): boolean {
-  return Boolean(address) && address !== "127.0.0.1" && !address.startsWith("169.254.");
-}
-
-export function getRadminVpnIp(): string | null {
-  const interfaces = networkInterfaces();
-  const radminAddresses: string[] = [];
-  const radminRangeAddresses: string[] = [];
-
-  for (const [name, addresses] of Object.entries(interfaces)) {
-    if (!addresses) {
-      continue;
-    }
-
-    for (const address of addresses) {
-      if (String(address.family) !== "IPv4" || address.internal || !isUsableIpv4Address(address.address)) {
-        continue;
-      }
-
-      if (/radmin/i.test(name)) {
-        radminAddresses.push(address.address);
-      } else if (address.address.startsWith("26.")) {
-        radminRangeAddresses.push(address.address);
-      }
-    }
-  }
-
-  return radminAddresses[0] ?? radminRangeAddresses[0] ?? null;
-}
-
 export function getDefaultMatchmakingHost(): string {
-  return getRadminVpnIp() ?? DEFAULT_GAME_SERVER_HOST;
+  return DEFAULT_GAME_SERVER_HOST;
 }
 
 export function parseHostPort(value: string): ParsedEndpoint | null {

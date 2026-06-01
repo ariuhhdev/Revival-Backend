@@ -5,7 +5,7 @@ import fs from "fs";
 import path from "path";
 import crypto from "crypto";
 import logger from "../utils/logger/logger";
-import { atlasDataPath, atlasDataReadPath } from "../config/paths";
+import { revivalDataPath, revivalDataReadPath } from "../config/paths";
 
 interface CmsVersionInfo {
   season: number;
@@ -86,22 +86,22 @@ function getResolvedMinor(version: CmsVersionInfo, userAgent: string): number {
 
 function readCmsJson<T = any>(fileName: string): T {
   return JSON.parse(
-    fs.readFileSync(atlasDataReadPath("static", "cms", fileName), "utf8")
+    fs.readFileSync(revivalDataReadPath("static", "cms", fileName), "utf8")
   ) as T;
 }
 
-const atlasDiscordUrl = "https://github.com/ariuhhdev/Revival-Backend";
-const atlasBannerImage =
+const revivalDiscordUrl = "https://github.com/ariuhhdev/Revival-Backend";
+const revivalBannerImage =
   "https://elestiamp.b-cdn.net/banner.png";
-const atlasBannerSlimImage =
+const revivalBannerSlimImage =
   "https://elestiamp.b-cdn.net/banner-slim.png";
-const atlasNoticeBody =
+const revivalNoticeBody =
   'A backend made going up to Chapter 5 Season 3. Made by ariuhh!';
-const atlasNewsBody = 'The best and fastest backend going until Chapter 5 Season 3.';
+const revivalNewsBody = 'The best and fastest backend going until Chapter 5 Season 3.';
 
 function createDynamicMotdCollection(targetIslandCode: string): any {
-  const contentId = "elestia-br-motd-item";
-  const tcId = "elestia-br-motd-tc";
+  const contentId = "revival-br-motd-item";
+  const tcId = "revival-br-motd-tc";
   const contentFields = {
     Buttons: [
       {
@@ -121,30 +121,30 @@ function createDynamicMotdCollection(targetIslandCode: string): any {
         {
           width: 1920,
           height: 1080,
-          url: atlasBannerImage,
+          url: revivalBannerImage,
         },
         {
           width: 960,
           height: 540,
-          url: atlasBannerImage,
+          url: revivalBannerImage,
         },
       ],
       _type: "FullScreenBackground",
     },
-    FullScreenBody: atlasNewsBody,
+    FullScreenBody: revivalNewsBody,
     FullScreenTitle: "Revival Backend",
-    FullScreenBackgroundImageLink: atlasBannerImage,
+    FullScreenBackgroundImageLink: revivalBannerImage,
     TeaserBackground: {
       Image: [
         {
           width: 1024,
           height: 512,
-          url: atlasBannerSlimImage,
+          url: revivalBannerSlimImage,
         },
       ],
       _type: "TeaserBackground",
     },
-    TeaserBackgroundImageLink: atlasBannerSlimImage,
+    TeaserBackgroundImageLink: revivalBannerSlimImage,
     TeaserTitle: "Revival Backend",
     VerticalTextLayout: false,
   };
@@ -157,7 +157,7 @@ function createDynamicMotdCollection(targetIslandCode: string): any {
   return {
     contentType: "collection",
     contentId: "fortnite-br-br-motd-collection",
-    tcId: "elestia-br-motd-collection-tc",
+    tcId: "revival-br-motd-collection-tc",
     contentMeta: JSON.stringify({ [contentHash]: [contentId] }),
     contentItems: [
       {
@@ -172,7 +172,7 @@ function createDynamicMotdCollection(targetIslandCode: string): any {
   };
 }
 
-function applyAtlasLobbyMessaging(content: any): void {
+function applyRevivalLobbyMessaging(content: any): void {
   content.emergencynotice = {
     news: {
       _type: "Battle Royale News",
@@ -181,7 +181,7 @@ function applyAtlasLobbyMessaging(content: any): void {
         {
           _type: "CommonUI Simple Message Base",
           title: "Revival Backend",
-          body: atlasNoticeBody,
+          body: revivalNoticeBody,
           hidden: false,
           spotlight: false,
           subgame: "br",
@@ -206,7 +206,7 @@ function applyAtlasLobbyMessaging(content: any): void {
         {
           _type: "CommonUI Emergency Notice Base",
           title: "Revival Backend",
-          body: atlasNoticeBody,
+          body: revivalNoticeBody,
           hidden: false,
           gamemodes: [],
         },
@@ -232,14 +232,14 @@ function applyAtlasLobbyMessaging(content: any): void {
   battleroyalenewsv2News.motds = [
     {
       _type: "CommonUI Simple Message MOTD",
-      id: existingBattleroyalev2Motd.id ?? "ElestiaNewsBRv2",
+      id: existingBattleroyalev2Motd.id ?? "RevivalNewsBRv2",
       entryType: "Website",
       title: "Revival Backend",
-      body: atlasNewsBody,
+      body: revivalNewsBody,
       tabTitleOverride: "Revival Backend",
       sortingPriority: 0,
-      image: atlasBannerImage,
-      tileImage: atlasBannerSlimImage,
+      image: revivalBannerImage,
+      tileImage: revivalBannerSlimImage,
       hidden: false,
       spotlight: false,
       videoMute: false,
@@ -248,7 +248,7 @@ function applyAtlasLobbyMessaging(content: any): void {
       videoAutoplay: false,
       videoFullscreen: false,
       websiteButtonText: "Github link",
-      websiteURL: atlasDiscordUrl,
+      websiteURL: revivalDiscordUrl,
     },
   ];
   battleroyalenewsv2.news = battleroyalenewsv2News;
@@ -274,7 +274,7 @@ function setCmsNoCacheHeaders(c: any): void {
 
 function appendCmsDebugLog(line: string): void {
   try {
-    const logDir = atlasDataPath("logs");
+    const logDir = revivalDataPath("logs");
     if (!fs.existsSync(logDir)) {
       fs.mkdirSync(logDir, { recursive: true });
     }
@@ -295,9 +295,9 @@ function sendCmsResponse(
 
   const season = getResolvedSeason(version, userAgent);
   const minor = getResolvedMinor(version, userAgent);
-  c.header("X-ELESTIA-CMS-SEASON", String(season));
-  c.header("X-ELESTIA-CMS-MINOR", String(minor));
-  c.header("X-ELESTIA-CMS-SOURCE", source);
+  c.header("X-REVIVAL-CMS-SEASON", String(season));
+  c.header("X-REVIVAL-CMS-MINOR", String(minor));
+  c.header("X-REVIVAL-CMS-SOURCE", source);
 
   const now = new Date().toISOString();
   if (content && typeof content === "object") {
@@ -558,7 +558,7 @@ export default function () {
     }
     if (season === 15) {
       const content = readCmsJson("contentpages_s15.json");
-      applyAtlasLobbyMessaging(content);
+      applyRevivalLobbyMessaging(content);
       applySeasonSpecificBackground(content, version, userAgent);
       return sendCmsResponse(c, content, version, userAgent, "contentpages-s15");
     }
@@ -581,7 +581,7 @@ export default function () {
 hidden: false,
                  _type: "CommonUI Simple Message Base",
                  subgame: "br",
-                 body: atlasNoticeBody,
+                 body: revivalNoticeBody,
                  title: "Revival Backend",
                 spotlight: false,
               },
@@ -610,7 +610,7 @@ hidden: false,
 hidden: false,
                  _type: "CommonUI Emergency Notice Base",
                  title: "Revival Backend",
-                 body: atlasNoticeBody,
+                 body: revivalNoticeBody,
                },
             ],
           },
@@ -636,11 +636,11 @@ hidden: false,
                 tabTitleOverride: "Revival Backend",
                  _type: "CommonUI Simple Message MOTD",
 title: "Revival Backend",
-                 body: atlasNewsBody,
+                 body: revivalNewsBody,
                  videoLoop: false,
                 videoStreamingEnabled: false,
                 sortingPriority: 0,
-                id: "ElestiaNewsBR",
+                id: "RevivalNewsBR",
                 videoAutoplay: false,
                 videoFullscreen: false,
                 spotlight: false,
@@ -725,7 +725,7 @@ title: "Revival Backend",
       }
     }
 
-    applyAtlasLobbyMessaging(content);
+    applyRevivalLobbyMessaging(content);
     applySeasonSpecificBackground(content, version, userAgent);
 
     return sendCmsResponse(c, content, version, userAgent, "live-fortnite-game");
@@ -760,7 +760,7 @@ title: "Revival Backend",
     }
     if (season === 15) {
       const content = readCmsJson("contentpages_s15.json");
-      applyAtlasLobbyMessaging(content);
+      applyRevivalLobbyMessaging(content);
       applySeasonSpecificBackground(content, version, userAgent);
       return sendCmsResponse(c, content, version, userAgent, "wildcard-contentpages-s15");
     }
@@ -769,7 +769,7 @@ title: "Revival Backend",
       "https://fortnitecontent-website-prod07.ol.epicgames.com/content/api/pages/fortnite-game"
     );
     const content: any = game.data;
-    applyAtlasLobbyMessaging(content);
+    applyRevivalLobbyMessaging(content);
     applySeasonSpecificBackground(content, version, userAgent);
     return sendCmsResponse(c, content, version, userAgent, "wildcard-live");
   });
@@ -790,7 +790,7 @@ title: "Revival Backend",
           item.placements = [];
           tags.forEach((tag: string) => {
             item.placements.push({
-              trackingId: "elestia-tracking",
+              trackingId: "revival-tracking",
               tag,
               position: 0,
             });
